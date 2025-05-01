@@ -155,6 +155,10 @@ void ZZSelectorBase::SetBranchesUWVV()
     fChain->SetBranchAddress("e2Pt", &l2Pt, &b_l2Pt);
     fChain->SetBranchAddress("e3Pt", &l3Pt, &b_l3Pt);
     fChain->SetBranchAddress("e4Pt", &l4Pt, &b_l4Pt);
+    fChain->SetBranchAddress("e1Charge", &l1Charge, &b_l1Charge);
+    fChain->SetBranchAddress("e2Charge", &l2Charge, &b_l2Charge);
+    fChain->SetBranchAddress("e3Charge", &l3Charge, &b_l3Charge);
+    fChain->SetBranchAddress("e4Charge", &l4Charge, &b_l4Charge);
     fChain->SetBranchAddress("e1PVDZ", &l1PVDZ, &b_l1PVDZ);
     fChain->SetBranchAddress("e2PVDZ", &l2PVDZ, &b_l2PVDZ);
     fChain->SetBranchAddress("e3PVDZ", &l3PVDZ, &b_l3PVDZ);
@@ -228,6 +232,10 @@ void ZZSelectorBase::SetBranchesUWVV()
     fChain->SetBranchAddress("e2Pt", &l2Pt, &b_l2Pt);
     fChain->SetBranchAddress("m1Pt", &l3Pt, &b_l3Pt);
     fChain->SetBranchAddress("m2Pt", &l4Pt, &b_l4Pt);
+    fChain->SetBranchAddress("e1Charge", &l1Charge, &b_l1Charge);
+    fChain->SetBranchAddress("e2Charge", &l2Charge, &b_l2Charge);
+    fChain->SetBranchAddress("m1Charge", &l3Charge, &b_l3Charge);
+    fChain->SetBranchAddress("m2Charge", &l4Charge, &b_l4Charge);
     fChain->SetBranchAddress("e1PVDZ", &l1PVDZ, &b_l1PVDZ);
     fChain->SetBranchAddress("e2PVDZ", &l2PVDZ, &b_l2PVDZ);
     fChain->SetBranchAddress("m1PVDZ", &l3PVDZ, &b_l3PVDZ);
@@ -300,6 +308,10 @@ void ZZSelectorBase::SetBranchesUWVV()
     fChain->SetBranchAddress("e2Pt", &l2Pt, &b_l2Pt);
     fChain->SetBranchAddress("m1Pt", &l3Pt, &b_l3Pt);
     fChain->SetBranchAddress("m2Pt", &l4Pt, &b_l4Pt);
+     fChain->SetBranchAddress("e1Charge", &l1Charge, &b_l1Charge);                                         
+    fChain->SetBranchAddress("e2Charge", &l2Charge, &b_l2Charge);                                         
+    fChain->SetBranchAddress("m1Charge", &l3Charge, &b_l3Charge);                                         
+    fChain->SetBranchAddress("m2Charge", &l4Charge, &b_l4Charge);
     fChain->SetBranchAddress("e1PVDZ", &l1PVDZ, &b_l1PVDZ);
     fChain->SetBranchAddress("e2PVDZ", &l2PVDZ, &b_l2PVDZ);
     fChain->SetBranchAddress("m1PVDZ", &l3PVDZ, &b_l3PVDZ);
@@ -372,6 +384,10 @@ void ZZSelectorBase::SetBranchesUWVV()
     fChain->SetBranchAddress("m2Pt", &l2Pt, &b_l2Pt);
     fChain->SetBranchAddress("m3Pt", &l3Pt, &b_l3Pt);
     fChain->SetBranchAddress("m4Pt", &l4Pt, &b_l4Pt);
+     fChain->SetBranchAddress("m1Charge", &l1Charge, &b_l1Charge);
+    fChain->SetBranchAddress("m2Charge", &l2Charge, &b_l2Charge);
+    fChain->SetBranchAddress("m3Charge", &l3Charge, &b_l3Charge);
+    fChain->SetBranchAddress("m4Charge", &l4Charge, &b_l4Charge);
     fChain->SetBranchAddress("m1PVDZ", &l1PVDZ, &b_l1PVDZ);
     fChain->SetBranchAddress("m2PVDZ", &l2PVDZ, &b_l2PVDZ);
     fChain->SetBranchAddress("m3PVDZ", &l3PVDZ, &b_l3PVDZ);

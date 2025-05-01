@@ -19,7 +19,7 @@ void ZZSelector::Init(TTree *tree)
   // This would be set true inside ZZBackground Selector
   // isNonPrompt_ = false;
 
-  systHists_ = {"yield","Mass","MassFull","nJets","jetPt[1]","jetPt[0]","jetEta[0]","jetEta[1]","absjetEta[0]","absjetEta[1]","mjj","dEtajj","Mass0j","Mass1j","Mass2j","Mass3j","Mass34j","Mass4j","Mass0jFull","Mass1jFull","Mass2jFull","Mass3jFull","Mass34jFull","Mass4jFull"} ;
+  systHists_ = {"yield","Mass","MassFull","nJets","jetPt[1]","jetPt[0]","jetEta[0]","jetEta[1]","absjetEta[0]","absjetEta[1]","mjj","dEtajj","Mass0j","Mass1j","Mass2j","Mass3j","Mass34j","Mass4j","Mass0jFull","Mass1jFull","Mass2jFull","Mass3jFull","Mass34jFull","Mass4jFull","CosTheta","ZMass","Z1Mass","Z2Mass","ZZPt","Z1Pt","Z2Pt","Z1Phi","Z2Phi","dPhiZ1Z2","ZPt","LepPt","LepEta","dPhiOSll","RapidityDiff"} ;
   // hists1D_ = {
   //      "yield", "backgroundControlYield","nTruePU","nvtx","ZMass","Z1Mass","Z2Mass","ZZPt",
   //      "Z1Pt","Z2Pt","Z1Phi","Z2Phi","dPhiZ1Z2","ZPt","LepPt","LepEta","Lep12Pt","Lep12Eta",
@@ -28,12 +28,12 @@ void ZZSelector::Init(TTree *tree)
   //      "Z2lep2_Eta","Z2lep2_Phi","Z2lep2_Pt","Z2lep2_PdgId","Mass","nJets",
   // };
 
-  hists1D_ = {"yield","Z1Mass","Z2Mass","ZMass","ZZPt","ZZEta","dPhiZ1Z2","dRZ1Z2","ZPt","LepPt","LepPtFull","LepEta", "Lep1Eta", "Lep2Eta", "Lep3Eta", "Lep4Eta","PassTriggerFull","LepPt1","LepPt2","LepPt3","LepPt4","LepPt1Full","LepPt2Full","LepPt3Full","LepPt4Full","e1PtSortedFull","e2PtSortedFull","e1PtSorted","e2PtSorted","Mass","nJets","MassFull","SIP3D","PVDZ","deltaPVDZ_sameZ","deltaPVDZ_diffZ", "scaleWeightIDs", "Z1PolCos", "Z2PolCos", "Lep1Energy", "Lep2Energy", "Lep3Energy", "Lep4Energy", "LepIso", "Lep1Iso", "Lep2Iso", "Lep3Iso", "Lep4Iso"};
+  hists1D_ = {"yield","Z1Mass","Z2Mass","ZMass","ZZPt","ZZEta","dPhiZ1Z2","dRZ1Z2","ZPt","LepPt","LepPtFull","LepEta", "Lep1Eta", "Lep2Eta", "Lep3Eta", "Lep4Eta","PassTriggerFull","LepPt1","LepPt2","LepPt3","LepPt4","LepPt1Full","LepPt2Full","LepPt3Full","LepPt4Full","e1PtSortedFull","e2PtSortedFull","e1PtSorted","e2PtSorted","Mass","nJets","MassFull","SIP3D","PVDZ","deltaPVDZ_sameZ","deltaPVDZ_diffZ", "scaleWeightIDs", "Z1PolCos", "Z2PolCos", "Lep1Energy", "Lep2Energy", "Lep3Energy", "Lep4Energy", "LepIso", "Lep1Iso", "Lep2Iso", "Lep3Iso", "Lep4Iso","CosTheta","dPhiOSll","RapidityDiff"};
 
   jetTest2D_ = {}; // also defined in hists1D_ to pass checks in InitializeHistogramsFromConfig()
   jethists1D_ = {"Mass","MassFull","nJets","jetPt[1]","jetPt[0]","jetEta[0]","jetEta[1]","absjetEta[0]","absjetEta[1]","mjj","dEtajj","Mass0j","Mass1j","Mass2j","Mass3j","Mass34j","Mass4j","Mass0jFull","Mass1jFull","Mass2jFull","Mass3jFull","Mass34jFull","Mass4jFull"};
 
-  weighthists1D_ = {"yield","Z1Mass","Z2Mass","ZMass","ZZPt","ZZEta","dPhiZ1Z2","dRZ1Z2","ZPt","LepPt","LepPtFull","LepEta", "Lep1Eta", "Lep2Eta", "Lep3Eta", "Lep4Eta","PassTriggerFull","LepPt1","LepPt2","LepPt3","LepPt4","LepPt1Full","LepPt2Full","LepPt3Full","LepPt4Full","e1PtSortedFull","e2PtSortedFull","e1PtSorted","e2PtSorted","Mass","nJets","MassFull","SIP3D","PVDZ","deltaPVDZ_sameZ","deltaPVDZ_diffZ", "Z1PolCos", "Z2PolCos", "Lep1Energy", "Lep2Energy", "Lep3Energy", "Lep4Energy", "LepIso", "Lep1Iso", "Lep2Iso", "Lep3Iso", "Lep4Iso"};
+  weighthists1D_ = {"yield","Z1Mass","Z2Mass","ZMass","ZZPt","ZZEta","dPhiZ1Z2","dRZ1Z2","ZPt","LepPt","LepPtFull","LepEta", "Lep1Eta", "Lep2Eta", "Lep3Eta", "Lep4Eta","PassTriggerFull","LepPt1","LepPt2","LepPt3","LepPt4","LepPt1Full","LepPt2Full","LepPt3Full","LepPt4Full","e1PtSortedFull","e2PtSortedFull","e1PtSorted","e2PtSorted","Mass","nJets","MassFull","SIP3D","PVDZ","deltaPVDZ_sameZ","deltaPVDZ_diffZ", "Z1PolCos", "Z2PolCos", "Lep1Energy", "Lep2Energy", "Lep3Energy", "Lep4Energy", "LepIso", "Lep1Iso", "Lep2Iso", "Lep3Iso", "Lep4Iso","CosTheta","dPhiOSll","RapidityDiff"};
   //weighthists1D_ = {"yield","Mass","MassFull","nJets","jetPt[1]","jetPt[0]","jetEta[0]","jetEta[1]","absjetEta[0]","absjetEta[1]","mjj","dEtajj","Mass0j","Mass1j","Mass2j","Mass3j","Mass34j","Mass4j","Mass0jFull","Mass1jFull","Mass2jFull","Mass3jFull","Mass34jFull","Mass4jFull"};
   ZZSelectorBase::Init(tree);
   // fCutFormula = new TTreeFormula("CutFormula", fOption, fChain);
@@ -134,11 +134,11 @@ unsigned int ZZSelector::GetLheWeightInfo()
   std::vector<std::string> noLheWeights = {
       "ggZZ2e2mu", "ggZZ4e", "ggZZ4m", "ggZZ4t", "ggZZ2e2tau", "ggZZ2mu2tau", "zz4l-sherpa", "ZZJJTo2e2mu-EWK-phantom", "ZZJJTo4e-EWK-phantom", "ZZJJTo4mu-EWK-phantom"
   };
-  std::vector<std::string> scaleWeightsAndIDs = {
+  /*  std::vector<std::string> scaleWeightsAndIDs = {
       "pp_eemm-cHWB_massless", "pp_eemm-cHG_massless", "pp_eemm-cll1_massless",
       "pp_eemm-ceu_massless", "pp_eemm-ced_massless", "pp_eemm-cee_massless",
       "pp_eemm-cll_massless", "pp_eemmj-cHG_massless", "gg_eemm-cHG_massless"
-  };
+      };*/
   std::vector<std::string> scaleAndPdfWeights = {
       "wz3lnu-powheg", "wz3lnu-mg5amcnlo",
       "ZZZ", "WZZ", "WWZ",
@@ -157,9 +157,9 @@ unsigned int ZZSelector::GetLheWeightInfo()
     return 2;
   if (std::find(allLheWeights.begin(), allLheWeights.end(), name_) != allLheWeights.end())
     return 3;
-  if (std::find(scaleWeightsAndIDs.begin(), scaleWeightsAndIDs.end(), name_) != scaleWeightsAndIDs.end())
+  /*if (std::find(scaleWeightsAndIDs.begin(), scaleWeightsAndIDs.end(), name_) != scaleWeightsAndIDs.end())
     return 4;
-  
+  */  
   if (isUL_L1check){
     return 0;
   }
@@ -182,6 +182,10 @@ void ZZSelector::LoadBranchesUWVV(Long64_t entry, std::pair<Systematic, std::str
   // b_l1Pt->GetEntry(entry);
   // b_l2Pt->GetEntry(entry);
   // b_l3Pt->GetEntry(entry);
+   b_l1Charge->GetEntry(entry);
+  b_l2Charge->GetEntry(entry);
+  b_l3Charge->GetEntry(entry);
+  b_l4Charge->GetEntry(entry);
   b_Mass->GetEntry(entry);
   b_Pt->GetEntry(entry);
   b_Eta->GetEntry(entry);
@@ -274,8 +278,16 @@ void ZZSelector::LoadBranchesUWVV(Long64_t entry, std::pair<Systematic, std::str
     if (TightZZLeptons())
     {
       SetVariables(entry);
+       GetPolarizationAngle();
     }
   }
+  if (channel_ == eeee || channel_ == mmmm)
+    {
+      if (TightZZLeptons())
+          {GetPolarizationAngle();
+          }
+    }
+
 
   if (isMC_)
   {
@@ -427,9 +439,82 @@ void ZZSelector::LoadBranchesUWVV(Long64_t entry, std::pair<Systematic, std::str
 
   dEtajj = deltaEtajj(jetEta);
   dPhiZZ = deltaPhiZZ(Z1Phi, Z2Phi);
-  dRZZ = deltaRZZ(Z1Eta, Z2Eta, dPhiZZ);
+ if (channel_ == eemm )
+    {
+      if (l1Charge>0 && l3Charge<0) {
+        dPhill = deltaPhiZZ(l1Phi, l3Phi);}
+      if (l2Charge>0 && l4Charge<0) {
+        dPhill = deltaPhiZZ(l2Phi, l4Phi);}
+      if (l1Charge>0 && l4Charge<0) {
+        dPhill = deltaPhiZZ(l1Phi, l4Phi);}
+      if (l2Charge>0 && l3Charge<0) {
+        dPhill = deltaPhiZZ(l2Phi, l3Phi);}
+    }
+if (channel_ == mmee )
+                                                                             
+    {
+      if (l1Charge<0 && l3Charge>0) {
+        dPhill = deltaPhiZZ(l1Phi, l3Phi);}
+                                                           
+      if (l2Charge<0 && l4Charge>0) {
+        dPhill = deltaPhiZZ(l2Phi, l4Phi);}
+      if (l1Charge<0 && l4Charge>0) {
+        dPhill = deltaPhiZZ(l1Phi, l4Phi);}
+      if (l2Charge<0 && l3Charge>0) {
+        dPhill = deltaPhiZZ(l2Phi, l3Phi);}
+    }
 
-  ROOT::Math::PtEtaPhiEVector lp1, ln1, lp2, ln2;
+  dRZZ = deltaRZZ(Z1Eta, Z2Eta, dPhiZZ);
+}
+auto rapidity = [](TLorentzVector z1P4, TLorentzVector z2P4)
+ {
+   double  Z1Rapidity = z1P4.Rapidity();
+   double  Z2Rapidity = z2P4.Rapidity();
+   return (abs((Z1Rapidity)-(Z2Rapidity)));
+ };
+
+auto costheta = [] (TLorentzVector z1P4, TLorentzVector z2P4, TLorentzVector l1P4) {
+
+  //double costheta (TLorentzVector z1P4, TLorentzVector z2P4, TLorentzVector l1P4)                     
+
+  TLorentzVector zzP4=z1P4+z2P4;
+  l1P4.Boost(-z1P4.BoostVector());
+  z1P4.Boost(-zzP4.BoostVector());
+  TLorentzVector lP4_z1=l1P4;
+  TLorentzVector z1P4_zz=z1P4;
+  double ct = lP4_z1.Vect().Dot(z1P4_zz.Vect()) / (lP4_z1.Vect().Mag()*z1P4_zz.Vect().Mag());
+  return ct;
+};
+void ZZSelector::GetPolarizationAngle()
+{
+
+  TLorentzVector z1P4;
+  z1P4.SetPtEtaPhiM(Z1pt, Z1Eta, Z1Phi, Z1mass);
+
+  TLorentzVector z2P4;
+  z2P4.SetPtEtaPhiM(Z2pt, Z2Eta, Z2Phi, Z2mass);
+
+  TLorentzVector l1P4;
+  l1P4.SetPtEtaPhiM(l1Pt,l1Eta,l1Phi,l1Mass);
+
+  TLorentzVector l2P4;
+  l2P4.SetPtEtaPhiM(l2Pt,l2Eta,l2Phi,l2Mass);
+
+  TLorentzVector l3P4;
+  l3P4.SetPtEtaPhiM(l3Pt,l3Eta,l3Phi,l3Mass);
+
+  TLorentzVector l4P4;
+  l4P4.SetPtEtaPhiM(l4Pt,l4Eta,l4Phi,l4Mass);
+
+   cosTheta_1 = costheta(z1P4,z2P4,l1P4);
+   cosTheta_2 = costheta(z1P4,z2P4,l2P4);
+  cosTheta_3 = costheta(z2P4,z1P4,l3P4);
+  cosTheta_4 = costheta(z2P4,z1P4,l4P4);
+
+  rapidityDiff = rapidity(z1P4,z2P4);
+}
+
+/*  ROOT::Math::PtEtaPhiEVector lp1, ln1, lp2, ln2;
   //std::cout << "NOTE: " << l1PdgId << " " << l2PdgId << " " << l3PdgId << " " << l4PdgId << std::endl;
   if (l1PdgId > 0){
   	lp1 = ROOT::Math::PtEtaPhiEVector(l1Pt, l1Eta, l1Phi, l1Energy);
@@ -465,7 +550,7 @@ void ZZSelector::LoadBranchesUWVV(Long64_t entry, std::pair<Systematic, std::str
 
   Z1PolCos = PolCosTheta(lp1, ln1);
   Z2PolCos = PolCosTheta(lp2, ln2);
-}
+  }*/
 
 void ZZSelector::ApplyScaleFactors()
 {
@@ -735,6 +820,12 @@ void ZZSelector::SetVariables(Long64_t entry)
     float tempPt = Z1pt;
     Z1pt = Z2pt;
     Z2pt = tempPt;
+    float tempEta = Z1Eta;
+    Z1Eta = Z2Eta;
+    Z2Eta= tempEta;
+    float tempPhi = Z1Phi;
+    Z1Phi = Z2Phi;
+    Z2Phi = tempPhi;
     bool templ1IsTight = l1IsTight;
     l1IsTight = l3IsTight;
     l3IsTight = templ1IsTight;
@@ -807,6 +898,12 @@ void ZZSelector::SetVariables(Long64_t entry)
     float templ2Mass = l2Mass;
     l2Mass = l4Mass;
     l4Mass = templ2Mass;
+    int templ1Charge = l1Charge;
+    l1Charge = l3Charge; 
+    l3Charge = templ1Charge;  
+    int templ2Charge = l2Charge;
+    l2Charge = l4Charge;
+    l4Charge = templ2Charge;
   }
 }
 void ZZSelector::ShiftEfficiencies(Systematic variation)
@@ -1222,9 +1319,14 @@ bool ZZSelector::TightZZLeptons()
 }
 bool ZZSelector::ZZSelection()
 {
-  return (Z1mass > 60.0 && Z1mass < 120.0) && (Z2mass > 60.0 && Z2mass < 120.0);
-}
+return (Z1mass > 60.0 && Z1mass < 120.0) && (Z2mass > 60.0 && Z2mass < 120.0);
 
+}
+//bool ZZSelector::ZZSelection()
+//{
+//return (Z1mass > 80.0 && Z1mass < 100.0) && (Z2mass > 80.0 && Z2mass < 100.0);
+
+//}
 // We already require 4 < Z1,Z2 < 120  in the "Loose Skim"
 bool ZZSelector::ZSelection()
 {
@@ -1568,7 +1670,7 @@ if (writeNtp_ && writeNtpFullRange){
         }
 
         // No actual syst for full m4l but just for consistency
-        SafeHistFill(jethistMap1D_, getHistName("Mass", variation.second), Mass, i, weight);
+	//        SafeHistFill(jethistMap1D_, getHistName("Mass", variation.second), Mass, i, weight);
 
         if (vnJets[i] == 0)
         {
@@ -1606,7 +1708,7 @@ if (writeNtp_ && writeNtpFullRange){
     // std::cout<<"does it go into lheWeights"<<std::endl;
     // std::cout << "lheWeights.size() " << lheWeights.size() << std::endl;
     //if (lheWeights.size()) std::cout << "NOTE: lheWeights size = " << lheWeights.size() << std::endl;
-    for (size_t i = 0; i < lheWeights.size(); i++) // expect 0 to 111 currently
+    /*for (size_t i = 0; i < lheWeights.size(); i++) // expect 0 to 111 currently
     {
       SafeHistFill(weighthistMap1D_, getHistName("yield", variation.second), 1, i, lheWeights[i] / lheWeights[0] * weight);
       SafeHistFill(weighthistMap1D_, getHistName("Mass", variation.second), Mass, i, lheWeights[i] / lheWeights[0] * weight);
@@ -1662,8 +1764,8 @@ if (writeNtp_ && writeNtpFullRange){
       SafeHistFill(weighthistMap1D_, getHistName("LepIso", variation.second), l3IsIso, i, lheWeights[i] / lheWeights[0] * weight);
       SafeHistFill(weighthistMap1D_, getHistName("LepIso", variation.second), l4IsIso, i, lheWeights[i] / lheWeights[0] * weight);
 
-      SafeHistFill(weighthistMap1D_, getHistName("Z1PolCos", variation.second), Z1PolCos, i, lheWeights[i] / lheWeights[0] * weight);
-      SafeHistFill(weighthistMap1D_, getHistName("Z2PolCos", variation.second), Z2PolCos, i, lheWeights[i] / lheWeights[0] * weight);
+      //      SafeHistFill(weighthistMap1D_, getHistName("Z1PolCos", variation.second), Z1PolCos, i, lheWeights[i] / lheWeights[0] * weight);
+      //SafeHistFill(weighthistMap1D_, getHistName("Z2PolCos", variation.second), Z2PolCos, i, lheWeights[i] / lheWeights[0] * weight);
       if (80 < Mass && Mass < 110){
         SafeHistFill(weighthistMap1D_, getHistName("LepPt1Full", variation.second), l1PtTmp, i, lheWeights[i] / lheWeights[0] * weight);
         SafeHistFill(weighthistMap1D_, getHistName("LepPt2Full", variation.second), l2PtTmp, i, lheWeights[i] / lheWeights[0] * weight);
@@ -1677,7 +1779,7 @@ if (writeNtp_ && writeNtpFullRange){
         SafeHistFill(weighthistMap1D_, getHistName("e2PtSortedFull", variation.second), e2PtTmp, i, lheWeights[i] / lheWeights[0] * weight);
       }
 
-      SafeHistFill(weighthistMap1D_, getHistName("nJets", variation.second), jetPt->size(), i, lheWeights[i] / lheWeights[0] * weight);
+    //      SafeHistFill(weighthistMap1D_, getHistName("nJets", variation.second), jetPt->size(), i, lheWeights[i] / lheWeights[0] * weight);
 
       if (jetPt->size() > 0 && jetPt->size() == jetEta->size())
       {
@@ -1727,7 +1829,7 @@ if (writeNtp_ && writeNtpFullRange){
 //          SafeHistFill(weighthistMap1D_, getHistName("Mass4j", variation.second), Mass, i, lheWeights[i] / lheWeights[0] * weight);
         }
       }
-    }
+    }*/
   }
   // std::cout<<"isNonPrompt_ in FillHistograms after ZZSelection:"<<isNonPrompt_<<std::endl;
   // std::cout<<run<<":"<<lumi<<":"<<evt<<std::endl;
@@ -1768,7 +1870,7 @@ if (writeNtp_ && writeNtpFullRange){
   }
 //End filling ntuple
   
-  SafeHistFill(histMap1D_, getHistName("Mass", variation.second), Mass, weight);
+  //SafeHistFill(histMap1D_, getHistName("Mass", variation.second), Mass, weight);
   SafeHistFill(histMap1D_, getHistName("PVDZ", variation.second), l1PVDZ, weight);
   SafeHistFill(histMap1D_, getHistName("PVDZ", variation.second), l2PVDZ, weight);
   SafeHistFill(histMap1D_, getHistName("PVDZ", variation.second), l3PVDZ, weight);
@@ -1791,9 +1893,24 @@ if (writeNtp_ && writeNtpFullRange){
   // if (Mass <= 70.0 || Mass>=1000.0){
   //   return;
   // }
-
+  // if (evt != 507904 && weight !=388.286)
+  //{
+  //  if ( evt != 816730 && weight !=135.108)
+  // {
   SafeHistFill(histMap1D_, getHistName("yield", variation.second), 1, weight);
-  // SafeHistFill(histMap1D_, getHistName("Mass", variation.second), Mass,weight);
+  //if (l1Charge<0 && l2Charge>0) {
+  //SafeHistFill(histMap1D_, getHistName("CosTheta", variation.second), cosTheta_1, weight);}
+  //if (l2Charge <0 && l1Charge>0) {
+  // SafeHistFill(histMap1D_, getHistName("CosTheta", variation.second),  cosTheta_2, weight);}
+  //  if (l3Charge<0 && l4Charge>0) {
+  //SafeHistFill(histMap1D_, getHistName("CosTheta", variation.second),  cosTheta_3, weight);}
+  //if (l4Charge <0 && l3Charge>0) {
+  //SafeHistFill(histMap1D_, getHistName("CosTheta", variation.second),  cosTheta_4, weight);}
+  if (l1Charge>0 && l2Charge<0) {                                                                            
+  SafeHistFill(histMap1D_, getHistName("CosTheta", variation.second), cosTheta_1, weight);}                  
+  if (l2Charge >0 && l1Charge<0) {                                                                           
+  SafeHistFill(histMap1D_, getHistName("CosTheta", variation.second),  cosTheta_2, weight);} 
+  SafeHistFill(histMap1D_, getHistName("Mass", variation.second), Mass,weight);
   SafeHistFill(histMap1D_, getHistName("Z1Mass", variation.second), Z1mass, weight);
   SafeHistFill(histMap1D_, getHistName("Z2Mass", variation.second), Z2mass, weight);
   SafeHistFill(histMap1D_, getHistName("ZMass", variation.second), Z1mass, weight);
@@ -1804,8 +1921,8 @@ if (writeNtp_ && writeNtpFullRange){
   SafeHistFill(histMap1D_, getHistName("dRZ1Z2", variation.second), dRZZ, weight);
   SafeHistFill(histMap1D_, getHistName("ZZPt", variation.second), Pt, weight);
   SafeHistFill(histMap1D_, getHistName("ZZEta", variation.second), Eta, weight);
-  SafeHistFill(histMap1D_, getHistName("Z1PolCos", variation.second), Z1PolCos, weight);
-  SafeHistFill(histMap1D_, getHistName("Z2PolCos", variation.second), Z2PolCos, weight);
+  //SafeHistFill(histMap1D_, getHistName("Z1PolCos", variation.second), Z1PolCos, weight);
+  //SafeHistFill(histMap1D_, getHistName("Z2PolCos", variation.second), Z2PolCos, weight);
   SafeHistFill(histMap1D_, getHistName("Lep1Iso", variation.second), l1IsIso, weight);
   SafeHistFill(histMap1D_, getHistName("Lep2Iso", variation.second), l2IsIso, weight);
   SafeHistFill(histMap1D_, getHistName("Lep3Iso", variation.second), l3IsIso, weight);
@@ -1843,7 +1960,8 @@ if (writeNtp_ && writeNtpFullRange){
   SafeHistFill(histMap1D_, getHistName("LepEta", variation.second), l3Eta, weight);
   SafeHistFill(histMap1D_, getHistName("LepEta", variation.second), l4Eta, weight);
   SafeHistFill(histMap1D_, getHistName("nJets", variation.second), jetPt->size(), weight);
-  
+  SafeHistFill(histMap1D_, getHistName("dPhiOSll", variation.second), dPhill,weight);  
+  SafeHistFill(histMap1D_, getHistName("RapidityDiff", variation.second), rapidityDiff,weight);
   int central_nJets = 0;
   for (unsigned int cind = 0; cind < jetPt->size(); cind++)
   {
@@ -2019,6 +2137,31 @@ if (writeNtp_ && writeNtpFullRange){
   // }
   // if (isMC_)
   //   SafeHistFill(histMap1D_, getHistName("nTruePU", variation.second), nTruePU, weight);
+  /*if  ((isMC_) && (channel_ == mmmm))
+    //     if(channel_ == mmmm)                                                                            
+    {
+      cout<<"--------------------------------------------------"<<endl;
+      cout<<"event:="<<evt<<endl;
+      cout<<"lumi:="<<evt<<endl;
+      cout<<"run:="<<run<<endl;
+      cout<<"channel:="<<channel_<<endl;
+      cout<<"Genweight"<<genWeight<<",weights="<<weight<<endl;
+      cout<<"MassZ1="<<Z1mass<<",MassZ2"<<Z2mass<<endl;
+      cout<<"Mass4l="<<Mass<<endl;
+      cout<<"l1Pt="<<l1Pt<<",l1Eta="<<l1Eta<<",l1Charge="<<l1Charge<<endl;
+      cout<<"l2Pt="<<l2Pt<<",l2Eta="<<l2Eta<<",l2Charge="<<l2Charge<<endl;
+      cout<<"l3Pt="<<l3Pt<<",l3Eta="<<l3Eta<<",l3Charge="<<l3Charge<<endl;
+      cout<<"l4Pt="<<l4Pt<<",l4Eta="<<l4Eta<<",l4Charge="<<l4Charge<<endl;
+      cout<<"cosTheta_1="<<cosTheta_1<<endl;
+      cout<<"cosTheta_2="<<cosTheta_2<<endl;
+      cout<<"cosTheta_3="<<cosTheta_3<<endl;
+      cout<<"cosTheta_4="<<cosTheta_4<<endl;
+      cout<<"--------------------------------------------------"<<endl;
+  //   SafeHistFill(histMap1D_, getHistName("nTruePU", variation.second), nTruePU, weight);                
+  }*/
+  //}
+  //}
+
 }
 
 void ZZSelector::SetupNewDirectory()

@@ -86,36 +86,44 @@ def getCombinePath():
 def getListOfGenFilenames(analysis='ZZ'):
     if 'ZZ' in analysis:
         return [
-            "zz4l-amcatnlo",
+            #"zz4l-amcatnlo",
             "zz4l-powheg",
             #"qqZZSpec",
-            "ZZJJTo4L-EWK",
+            #"ZZJJTo4L-EWK",
             "ggZZ4e",
             "ggZZ4m",
-            "ggZZ4t",
+            "ggZZ4tau",
             "ggZZ2e2mu",
             "ggZZ2e2tau",
             "ggZZ2mu2tau",
-            "ggHZZ",
-            "ttH_HToZZ_4L",
-            "WminusHToZZ",
-            "WplusHToZZ",
-            "ZHToZZ_4L",
-            "vbfHZZ",
+            #"ZTZT",
+            #"ZTZ0",
+            #"Z0ZT",
+            #"Z0Z0",
+            #"ggHZZ",
+            #"ttH_HToZZ_4L",
+            #"WminusHToZZ",
+            #"WplusHToZZ",
+            #"ZHToZZ_4L",
+            #"vbfHZZ",
         ]
     return []
 def getListOfEWKFilenames(analysis=""):
     if "ZZ4l" in analysis:
         return [
-            "zz4l-amcatnlo",
-            #"zz4l-powheg",
+            #"zz4l-amcatnlo",
+            "zz4l-powheg",
             #"ZZJJTo4L-EWK",
             "ggZZ4e",
             "ggZZ4m",
-            "ggZZ4t",
+            "ggZZ4tau",
             "ggZZ2e2mu",
             "ggZZ2e2tau",
             "ggZZ2mu2tau",
+            #"ZTZT",
+            #"ZTZ0",
+            #"Z0ZT",
+            #"Z0Z0",
         ]
     # TODO: This is obviously WZ specific and should be updated
     return [

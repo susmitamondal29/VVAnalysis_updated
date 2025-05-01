@@ -73,7 +73,14 @@ public:
     Float_t Eta;
     float dPhiZZ; //DeltaPhi between Z1 and Z2
     float dRZZ;   //DeltaR between Z1 and Z2
-
+    float cosTheta_1;
+    float cosTheta_2;
+    float cosTheta_3;
+    float cosTheta_4;
+    float dPhill;
+    float Z1Rapidity;
+    float Z2Rapidity;
+    float rapidityDiff;
     std::vector<int> *jetPUID = NULL;
     std::vector<int> *isGenJetMatched = NULL;
 
@@ -146,6 +153,7 @@ protected:
     bool HZZLowMass();
     bool HZZMediumMass();
     bool TestMuons();
+    void GetPolarizationAngle();
     void ShiftEfficiencies(Systematic variation);
 };
 

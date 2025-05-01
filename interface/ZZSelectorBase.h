@@ -84,6 +84,10 @@ public:
     Float_t l2Pt;
     Float_t l3Pt;
     Float_t l4Pt;
+    Int_t l1Charge;
+    Int_t l2Charge;
+    Int_t l3Charge;
+    Int_t l4Charge;
     Float_t l1Energy;
     Float_t l2Energy;
     Float_t l3Energy;
@@ -146,7 +150,10 @@ public:
     TBranch *b_l2GenPt;
     TBranch *b_l3GenPt;
     TBranch *b_l4GenPt;
-
+    TBranch* b_l1Charge;
+    TBranch* b_l2Charge;
+    TBranch* b_l3Charge;
+    TBranch* b_l4Charge;
     TBranch *b_run;
     TBranch *b_lumi;
     TBranch *b_evt;

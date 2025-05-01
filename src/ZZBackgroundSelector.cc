@@ -43,7 +43,14 @@ void ZZBackgroundSelector::SetupNewDirectory()
 
       AddObject<TH1D>(MassHistPPPF_, ("Mass_PPPF_"+channelName_).c_str(), "Mass; m_{4l} [GeV]; Events;", 40, 70, 870);
       AddObject<TH1D>(MassHistPPFF_, ("Mass_PPFF_"+channelName_).c_str(), "Mass; m_{4l} [GeV]; Events;", 40, 70, 870);
-
+      
+       AddObject<TH1D>(CosThetaHistPPPF_, ("CosTheta_PPPF_"+channelName_).c_str(), "CosTheta; PolAngle_{4l} [GeV]; Events;", 20, -1.0, 1.0);
+      AddObject<TH1D>(CosThetaHistPPFF_, ("CosTheta_PPFF_"+channelName_).c_str(), "CosTheta; PolAngle_{4l} [GeV]; Events;", 20, -1.0, 1.0);
+      AddObject<TH1D>(RapidityDiffHistPPPF_, ("RapidityDiff_PPPF_"+channelName_).c_str(), "RapidityDiff; RapidityDiff_{4l} [GeV]; Events;", 20, 0, 4);
+      AddObject<TH1D>(RapidityDiffHistPPFF_, ("RapidityDiff_PPFF_"+channelName_).c_str(), "RapidityDiff; Rapidityfiff_{4l} [GeV]; Events;", 20, 0, 4);
+       AddObject<TH1D>(DeltaPhiHistPPPF_, ("DeltaPhi_PPPF_"+channelName_).c_str(), "DeltaPhi; DeltaPhi [GeV]; Events;", 16, 0, 4);
+       AddObject<TH1D>(DeltaPhiHistPPFF_, ("DeltaPhi_PPFF_"+channelName_).c_str(), "DeltaPhi; DeltaPhi [GeV]; Events;", 16, 0, 4);
+       
       AddObject<TH1D>(WeightsHistmmee_, ("Weights_mmee_"+channelName_).c_str(), "Weight; Event Weight; Events;", 10, -5, 5);
       AddObject<TH1D>(WeightsHisteemm_, ("Weights_eemm_"+channelName_).c_str(), "Weight; Event Weight; Events;", 100, -5, 5);
 }
@@ -73,20 +80,38 @@ float ZZBackgroundSelector::getEventWeight(Long64_t entry) {
     //std::cout<<"Weight in Bkg Seletor getEventWeight function: "<<weight<<std::endl;
       if (IsPPPFRegion()) {
         if (true){
-             //std::cout<<"Weight in PPPF: "<<weight<<std::endl;
+             std::cout<<"Weight in PPPF: "<<weight<<std::endl;
              Z1MassHistPPPF_->Fill(Z1mass, weight);
              Z2MassHistPPPF_->Fill(Z2mass, weight);
              MassHistPPPF_->Fill(Mass,weight);
+	     if (l1Charge>0 && l2Charge<0){
+	       CosThetaHistPPPF_->Fill(cosTheta_1,weight);}
+	     if (l2Charge >0 && l1Charge<0) { 
+	       CosThetaHistPPPF_->Fill(cosTheta_2,weight);}
+	     //CosThetaHistPPPF_->Fill(cosTheta_3,weight);
+	     //CosThetaHistPPPF_->Fill(cosTheta_4,weight);
+	     RapidityDiffHistPPPF_->Fill(rapidityDiff,weight);
+	     DeltaPhiHistPPPF_->Fill(dPhill,weight);
+	     
          }
          evtwgt = (getl4FakeRate(entry)*weight);
          //WeightsHistPPPF_->Fill(1,evtwgt);
       }
       if (IsPPFFRegion()) {
         if (true) {
-            //std::cout<<"Weight in PPFF: "<<weight<<std::endl;
+            std::cout<<"Weight in PPFF: "<<weight<<std::endl;
             Z1MassHistPPFF_->Fill(Z1mass, weight);
             Z2MassHistPPFF_->Fill(Z2mass, weight);
             MassHistPPFF_->Fill(Mass,weight);
+	    if (l1Charge>0 && l2Charge<0){
+	      CosThetaHistPPFF_->Fill(cosTheta_1,weight);}
+
+	   if (l2Charge >0 && l1Charge<0) {
+	     CosThetaHistPPFF_->Fill(cosTheta_2,weight);}
+	    //CosThetaHistPPFF_->Fill(cosTheta_3,weight);
+	    //CosThetaHistPPFF_->Fill(cosTheta_4,weight);
+	    RapidityDiffHistPPFF_->Fill(rapidityDiff,weight);
+	    DeltaPhiHistPPFF_->Fill(dPhill,weight);
         }
         evtwgt = ((-1*getl3FakeRate(entry)*getl4FakeRate(entry))*weight);
         //evtwgt = ((getl3FakeRate(entry)*getl4FakeRate(entry))*weight);
@@ -182,6 +207,10 @@ void ZZBackgroundSelector::SetZ1Z2Masses() {
       Z2mass = (lepton3+lepton4).M();
       Z1pt = (lepton1+lepton2).Pt();
       Z2pt = (lepton3+lepton4).Pt();
+      //Z1Phi = (lepton1+lepton2).Phi();
+      //Z2Phi = (lepton3+lepton4).Phi();
+      //Z1Eta = (lepton1+lepton2).Eta();
+      //Z2Eta = (lepton3+lepton4).Eta();
       //In Z2 what is l3 and l4 can change the fake rate a little bit.
       if(Z2FP()){
         float templ3Pt = l3Pt;
@@ -190,6 +219,9 @@ void ZZBackgroundSelector::SetZ1Z2Masses() {
         float templ3Eta = l3Eta;
         l3Eta = l4Eta;
         l4Eta = templ3Eta;
+	 float templ3Phi = l3Phi;
+        l3Phi = l4Phi;
+        l4Phi = templ3Phi;
       }
     }
     else if(tightZ2Leptons() && !tightZ1Leptons()){  
@@ -197,6 +229,10 @@ void ZZBackgroundSelector::SetZ1Z2Masses() {
       Z2mass = (lepton1+lepton2).M();
       Z1pt = (lepton3+lepton4).Pt();
       Z2pt = (lepton1+lepton2).Pt();
+      //Z1Phi = (lepton3+lepton4).Phi();
+      //Z2Phi = (lepton1+lepton2).Phi();
+      // Z1Eta = (lepton3+lepton4).Eta();
+      //Z2Eta = (lepton1+lepton2).Eta();
       //Fakes are l1,l2 from skims, reverse them
       float templ1Pt = l1Pt;
       l1Pt = l3Pt;
@@ -210,6 +246,12 @@ void ZZBackgroundSelector::SetZ1Z2Masses() {
       float templ2Eta = l2Eta;
       l2Eta = l4Eta;
       l4Eta = templ2Eta;
+      float templ1Phi = l1Phi;
+      l1Phi = l3Phi;
+      l3Phi = templ1Phi;
+      float templ2Phi = l2Phi;
+      l2Phi = l4Phi;
+      l4Phi = templ2Phi;
       float templ1SIP3D = l1SIP3D;
       l1SIP3D = l3SIP3D;
       l3SIP3D = templ1SIP3D;
@@ -231,6 +273,9 @@ void ZZBackgroundSelector::SetZ1Z2Masses() {
         float templ3Eta = l3Eta;
         l3Eta = l4Eta;
         l4Eta = templ3Eta;
+	float templ3Phi = l3Phi;
+        l3Phi = l4Phi;
+        l4Phi = templ3Phi;
       }
         }
     //The last two conditions only matter for TTJets fakes (very small amount)
@@ -241,13 +286,20 @@ void ZZBackgroundSelector::SetZ1Z2Masses() {
         Z2mass = (lepton1+lepton4).M();
         Z1pt = (lepton2+lepton3).Pt();
         Z2pt = (lepton1+lepton4).Pt();
+	//Z1Phi = (lepton2+lepton3).Phi();
+	//Z2Phi = (lepton1+lepton4).Phi();
+	//Z1Eta = (lepton2+lepton3).Eta();
+	//Z2Eta = (lepton1+lepton4).Eta();
         //Here the two fakes are l1,l4 and we only need to relabel l1 -> l3
         float templ1Pt = l1Pt;
         l1Pt = l3Pt;
         l3Pt = templ1Pt;
         float templ1Eta = l1Eta;
         l1Eta = l3Eta;
-        l3Eta = templ1Eta;}
+        l3Eta = templ1Eta;
+      float templ1Phi = l1Phi;
+        l1Phi = l3Phi;
+        l3Phi = templ1Phi;}
       else{
       }
     }
@@ -258,6 +310,10 @@ void ZZBackgroundSelector::SetZ1Z2Masses() {
         Z2mass = (lepton2+lepton3).M();
         Z1pt = (lepton1+lepton4).Pt();
         Z2pt = (lepton2+lepton3).Pt();
+	//Z1Phi = (lepton1+lepton4).Phi();
+	//Z2Phi = (lepton2+lepton3).Phi();
+	//Z1Eta = (lepton1+lepton4).Eta();
+	//Z2Eta = (lepton2+lepton3).Eta();
         //Here the two fakes are l2,l3 and we only need to relabel l2 -> l4 since this only matters in PPFF region so l3,l4 are interchangeable
         float templ2Pt = l2Pt;
         l2Pt = l4Pt;
@@ -265,6 +321,9 @@ void ZZBackgroundSelector::SetZ1Z2Masses() {
         float templ2Eta = l2Eta;
         l2Eta = l4Eta;
         l4Eta = templ2Eta;
+	float templ2Phi = l2Phi;
+        l2Eta = l4Phi;
+        l4Eta = templ2Phi;
       }
       else{
       }
