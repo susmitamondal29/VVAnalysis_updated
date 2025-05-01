@@ -207,10 +207,10 @@ void ZZBackgroundSelector::SetZ1Z2Masses() {
       Z2mass = (lepton3+lepton4).M();
       Z1pt = (lepton1+lepton2).Pt();
       Z2pt = (lepton3+lepton4).Pt();
-      //Z1Phi = (lepton1+lepton2).Phi();
-      //Z2Phi = (lepton3+lepton4).Phi();
-      //Z1Eta = (lepton1+lepton2).Eta();
-      //Z2Eta = (lepton3+lepton4).Eta();
+      Z1Phi = (lepton1+lepton2).Phi();
+      Z2Phi = (lepton3+lepton4).Phi();
+      Z1Eta = (lepton1+lepton2).Eta();
+      Z2Eta = (lepton3+lepton4).Eta();
       //In Z2 what is l3 and l4 can change the fake rate a little bit.
       if(Z2FP()){
         float templ3Pt = l3Pt;
@@ -229,10 +229,10 @@ void ZZBackgroundSelector::SetZ1Z2Masses() {
       Z2mass = (lepton1+lepton2).M();
       Z1pt = (lepton3+lepton4).Pt();
       Z2pt = (lepton1+lepton2).Pt();
-      //Z1Phi = (lepton3+lepton4).Phi();
-      //Z2Phi = (lepton1+lepton2).Phi();
-      // Z1Eta = (lepton3+lepton4).Eta();
-      //Z2Eta = (lepton1+lepton2).Eta();
+      Z1Phi = (lepton3+lepton4).Phi();
+      Z2Phi = (lepton1+lepton2).Phi();
+       Z1Eta = (lepton3+lepton4).Eta();
+      Z2Eta = (lepton1+lepton2).Eta();
       //Fakes are l1,l2 from skims, reverse them
       float templ1Pt = l1Pt;
       l1Pt = l3Pt;
@@ -286,10 +286,10 @@ void ZZBackgroundSelector::SetZ1Z2Masses() {
         Z2mass = (lepton1+lepton4).M();
         Z1pt = (lepton2+lepton3).Pt();
         Z2pt = (lepton1+lepton4).Pt();
-	//Z1Phi = (lepton2+lepton3).Phi();
-	//Z2Phi = (lepton1+lepton4).Phi();
-	//Z1Eta = (lepton2+lepton3).Eta();
-	//Z2Eta = (lepton1+lepton4).Eta();
+	Z1Phi = (lepton2+lepton3).Phi();
+	Z2Phi = (lepton1+lepton4).Phi();
+	Z1Eta = (lepton2+lepton3).Eta();
+	Z2Eta = (lepton1+lepton4).Eta();
         //Here the two fakes are l1,l4 and we only need to relabel l1 -> l3
         float templ1Pt = l1Pt;
         l1Pt = l3Pt;
@@ -310,10 +310,10 @@ void ZZBackgroundSelector::SetZ1Z2Masses() {
         Z2mass = (lepton2+lepton3).M();
         Z1pt = (lepton1+lepton4).Pt();
         Z2pt = (lepton2+lepton3).Pt();
-	//Z1Phi = (lepton1+lepton4).Phi();
-	//Z2Phi = (lepton2+lepton3).Phi();
-	//Z1Eta = (lepton1+lepton4).Eta();
-	//Z2Eta = (lepton2+lepton3).Eta();
+	Z1Phi = (lepton1+lepton4).Phi();
+	Z2Phi = (lepton2+lepton3).Phi();
+	Z1Eta = (lepton1+lepton4).Eta();
+	Z2Eta = (lepton2+lepton3).Eta();
         //Here the two fakes are l2,l3 and we only need to relabel l2 -> l4 since this only matters in PPFF region so l3,l4 are interchangeable
         float templ2Pt = l2Pt;
         l2Pt = l4Pt;
