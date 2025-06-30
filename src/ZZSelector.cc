@@ -414,7 +414,39 @@ void ZZSelector::LoadBranchesUWVV(Long64_t entry, std::pair<Systematic, std::str
       weight *= (*pileupSF_->begin()).second->evaluate({nTruePU, "down"}) / (*pileupSF_->begin()).second->evaluate({nTruePU, "nominal"});
     }
   }
+ /* double Z1pt_d = (double)Z1pt;
+  double Z1Eta_d = (double)Z1Eta;
+  double Z1Phi_d = (double)Z1Phi;
+  double Z1mass_d = (doubel)Z1mass;
+  double Z2pt_d = (double)Z2pt;
+  double Z2Eta_d = (double)Z2Eta;
+  double Z2Phi_d = (double)Z2Phi;
+  double Z2mass_d = (doubel)Z2mass;
 
+  double l1Pt_d = (double)l1Pt;
+  double l1Eta_d = (double)l1Eta;
+  double l1Phi_d = (double)l1Phi;
+  double l1Mass_d = (double)l1Mass;
+  double l1Energy_d = (double)l1Energy;
+
+  double l2Pt_d = (double)l2Pt;
+  double l2Eta_d = (double)l2Eta;
+  double l2Phi_d = (double)l2Phi;
+  double l2Mass_d = (double)l2Mass;
+  double l2Energy_d = (double)l2Energy;
+
+  double l3Pt_d = (double)l3Pt;
+  double l3Eta_d = (double)l3Eta;
+  double l3Phi_d = (double)l3Phi;
+  double l3Mass_d = (double)l3Mass;
+  double l3Energy_d = (double)l3Energy;
+
+  double l4Pt_d = (double)l4pt;
+  double l4Eta_d = (double)l4Eta;
+  double l4Phi_d = (double)l4Phi;
+  double l4Mass_d = (double)l4Mass;
+  double l4Energy_d = (double)l4Energy;
+*/
   auto deltaPhiZZ = [](float phi1, float phi2)
   {
     float pi = TMath::Pi();
@@ -473,43 +505,105 @@ auto rapidity = [](TLorentzVector z1P4, TLorentzVector z2P4)
    return (abs((Z1Rapidity)-(Z2Rapidity)));
  };
 
-auto costheta = [] (TLorentzVector z1P4, TLorentzVector z2P4, TLorentzVector l1P4) {
+/*auto costheta = [] (TLorentzVector z1P4, TLorentzVector z2P4, TLorentzVector l1P4) {
 
-  //double costheta (TLorentzVector z1P4, TLorentzVector z2P4, TLorentzVector l1P4)                     
+
 
   TLorentzVector zzP4=z1P4+z2P4;
+
   l1P4.Boost(-z1P4.BoostVector());
+
   z1P4.Boost(-zzP4.BoostVector());
   TLorentzVector lP4_z1=l1P4;
   TLorentzVector z1P4_zz=z1P4;
   double ct = lP4_z1.Vect().Dot(z1P4_zz.Vect()) / (lP4_z1.Vect().Mag()*z1P4_zz.Vect().Mag());
   return ct;
-};
+  };*/
+//double Z1Pt = (double)Z1pt
+  
+double costheta(const TLorentzVector& z1P4_input,
+                       const TLorentzVector& z2P4_input,
+                       const TLorentzVector& leptonP4_input) {
+    
+    TLorentzVector z1P4 = z1P4_input;
+    TLorentzVector z2P4 = z2P4_input;
+    TLorentzVector leptonP4 = leptonP4_input;
+
+    TLorentzVector zzP4 = z1P4 + z2P4;
+
+    leptonP4.Boost(-z1P4.BoostVector());  // Boost lepton to Z1 rest frame
+    z1P4.Boost(-zzP4.BoostVector());      // Boost Z1 to ZZ rest frame
+
+    double cosTheta = leptonP4.Vect().Dot(z1P4.Vect()) / 
+                      (leptonP4.Vect().Mag() * z1P4.Vect().Mag());
+
+    return cosTheta;
+}
+
+
 void ZZSelector::GetPolarizationAngle()
 {
 
-  TLorentzVector z1P4;
-  z1P4.SetPtEtaPhiM(Z1pt, Z1Eta, Z1Phi, Z1mass);
+  /* double Z1pt_d = (double)Z1pt;
+  double Z1Eta_d = (double)Z1Eta;
+  double Z1Phi_d = (double)Z1Phi;
+  double Z1mass_d = (double)Z1mass;
+  double Z2pt_d = (double)Z2pt;
+  double Z2Eta_d = (double)Z2Eta;
+  double Z2Phi_d = (double)Z2Phi;
+  double Z2mass_d = (double)Z2mass;
 
+  double l1Pt_d = (double)l1Pt;
+  double l1Eta_d = (double)l1Eta;
+  double l1Phi_d = (double)l1Phi;
+  //double l1Mass_d = (double)l1Mass;
+  double l1Energy_d = (double)l1Energy;
+
+  double l2Pt_d = (double)l2Pt;
+  double l2Eta_d = (double)l2Eta;
+  double l2Phi_d = (double)l2Phi;
+  //double l2Mass_d = (double)l2Mass;
+  double l2Energy_d = (double)l2Energy;
+
+  double l3Pt_d = (double)l3Pt;
+  double l3Eta_d = (double)l3Eta;
+  double l3Phi_d = (double)l3Phi;
+  //double l3Mass_d = (double)l3Mass;
+  double l3Energy_d = (double)l3Energy;
+
+  double l4Pt_d = (double)l4Pt;
+  double l4Eta_d = (double)l4Eta;
+  double l4Phi_d = (double)l4Phi;
+  //double l4Mass_d = (double)l4Mass;
+  double l4Energy_d = (double)l4Energy;*/
+  TLorentzVector z1P4;
+   z1P4.SetPtEtaPhiM(Z1pt, Z1Eta, Z1Phi, Z1mass);
+  //z1P4.SetPtEtaPhiM(Z1pt_d, Z1Eta_d, Z1Phi_d, Z1mass_d);  
   TLorentzVector z2P4;
   z2P4.SetPtEtaPhiM(Z2pt, Z2Eta, Z2Phi, Z2mass);
-
+ 
   TLorentzVector l1P4;
-  l1P4.SetPtEtaPhiM(l1Pt,l1Eta,l1Phi,l1Mass);
-
+  //l1P4.SetPtEtaPhiM(l1Pt,l1Eta,l1Phi,l1Mass);
+  l1P4.SetPtEtaPhiE(l1Pt,l1Eta,l1Phi,l1Energy);     
   TLorentzVector l2P4;
-  l2P4.SetPtEtaPhiM(l2Pt,l2Eta,l2Phi,l2Mass);
-
+  // l2P4.SetPtEtaPhiM(l2Pt,l2Eta,l2Phi,l2Mass);
+  l2P4.SetPtEtaPhiE(l2Pt,l2Eta,l2Phi,l2Energy); 
+  //z1P4=l1P4+l2P4;
   TLorentzVector l3P4;
-  l3P4.SetPtEtaPhiM(l3Pt,l3Eta,l3Phi,l3Mass);
-
+  //l3P4.SetPtEtaPhiM(l3Pt,l3Eta,l3Phi,l3Mass);
+  l3P4.SetPtEtaPhiE(l3Pt,l3Eta,l3Phi,l3Energy); 
   TLorentzVector l4P4;
-  l4P4.SetPtEtaPhiM(l4Pt,l4Eta,l4Phi,l4Mass);
-
-   cosTheta_1 = costheta(z1P4,z2P4,l1P4);
-   cosTheta_2 = costheta(z1P4,z2P4,l2P4);
-  cosTheta_3 = costheta(z2P4,z1P4,l3P4);
-  cosTheta_4 = costheta(z2P4,z1P4,l4P4);
+  //l4P4.SetPtEtaPhiM(l4Pt,l4Eta,l4Phi,l4Mass);
+  l4P4.SetPtEtaPhiE(l4Pt,l4Eta,l4Phi,l4Energy);
+  //z2P4=l3P4+l4P4;
+    if (l1Charge>0 && l2Charge<0){ 
+      cosTheta_1 = costheta(z1P4,z2P4,l1P4);}
+  if (l2Charge>0 && l1Charge<0){
+    cosTheta_2 = costheta(z1P4,z2P4,l2P4);}
+  if (l3Charge>0 && l4Charge<0){
+    cosTheta_3 = costheta(z2P4,z1P4,l3P4);}
+  if (l4Charge>0 && l3Charge<0){
+    cosTheta_4 = costheta(z2P4,z1P4,l4P4);}
 
   rapidityDiff = rapidity(z1P4,z2P4);
 }
@@ -1250,13 +1344,14 @@ bool ZZSelector::PassesZZjjSelection()
 
 bool ZZSelector::Passes4eExtraCut()
 {
-  float lpt_arraySort[] = {l1Pt, l2Pt, l3Pt, l4Pt};
+  // float lpt_arraySort[] = {l1Pt, l2Pt, l3Pt, l4Pt};
+  double lpt_arraySort[] = {l1Pt, l2Pt, l3Pt, l4Pt}; 
   std::sort(lpt_arraySort, lpt_arraySort + 4, std::greater<float>());
 
   if (channel_ == eeee)
     return lpt_arraySort[0] > 23 && lpt_arraySort[1] > 12;
   else
-    return true;
+  return true;
 }
 
 bool ZZSelector::Passes2e2mExtraCut(Long64_t entry)
@@ -1265,16 +1360,19 @@ bool ZZSelector::Passes2e2mExtraCut(Long64_t entry)
   float lpt1Tmp = 0.;
   float lpt2Tmp = 0.;
 
-  if (channel_ == eemm)
+    if (channel_ == eemm)
   {
-    float lpt_arraySort[] = {l1Pt, l2Pt}; // By default l1pt,l2pt set to e1pt,e2pt for eemm and mmee
+    //float lpt_arraySort[] = {l1Pt, l2Pt}; // By default l1pt,l2pt set to e1pt,e2pt for eemm and mmee
+
+    double lpt_arraySort[] = {l1Pt, l2Pt};
     std::sort(lpt_arraySort, lpt_arraySort + 2, std::greater<float>());
     lpt1Tmp = lpt_arraySort[0];
     lpt2Tmp = lpt_arraySort[1];
   }
   else if (channel_ == mmee)
   {
-    float lpt_arraySort[] = {l3Pt, l4Pt}; // pt switched by SetVariables function
+    //float lpt_arraySort[] = {l3Pt, l4Pt}; // pt switched by SetVariables function
+    double lpt_arraySort[] = {l3Pt, l4Pt};
     std::sort(lpt_arraySort, lpt_arraySort + 2, std::greater<float>());
     lpt1Tmp = lpt_arraySort[0];
     lpt2Tmp = lpt_arraySort[1];
@@ -1283,7 +1381,7 @@ bool ZZSelector::Passes2e2mExtraCut(Long64_t entry)
   if (channel_ == eemm || channel_ == mmee)
     return lpt1Tmp > 23 && lpt2Tmp > 12;
   else
-    return true;
+  return true;
 }
 
 bool ZZSelector::PassesZZSelection(bool nonPrompt)
@@ -1548,30 +1646,36 @@ if (writeNtp_ && writeNtpFullRange){
 //End filling ntuple
 
   // sort lepton pt
-  float lpt_array[] = {l1Pt, l2Pt, l3Pt, l4Pt};
+  //float lpt_array[] = {l1Pt, l2Pt, l3Pt, l4Pt};
+  double lpt_array[] = {l1Pt, l2Pt, l3Pt, l4Pt};
   std::sort(lpt_array, lpt_array + 4, std::greater<float>());
-  float l1PtTmp, l2PtTmp, l3PtTmp, l4PtTmp;
+  //float l1PtTmp, l2PtTmp, l3PtTmp, l4PtTmp;
+  double l1PtTmp, l2PtTmp, l3PtTmp, l4PtTmp; 
   l1PtTmp = lpt_array[0];
   l2PtTmp = lpt_array[1];
   l3PtTmp = lpt_array[2];
   l4PtTmp = lpt_array[3];
 
-  float e1PtTmp = 0.;
-  float e2PtTmp = 0.;
+  //float e1PtTmp = 0.;
+  //float e2PtTmp = 0.;
+  double e1PtTmp = 0.;
+  double e2PtTmp = 0.;
   if (channel_ == eemm)
   {
-    float lpt_arraySort[] = {l1Pt, l2Pt}; // By default l1pt,l2pt set to e1pt,e2pt for eemm and mmee
+    //float lpt_arraySort[] = {l1Pt, l2Pt}; // By default l1pt,l2pt set to e1pt,e2pt for eemm and mmee
+    double lpt_arraySort[] = {l1Pt, l2Pt};
     std::sort(lpt_arraySort, lpt_arraySort + 2, std::greater<float>());
     e1PtTmp = lpt_arraySort[0];
     e2PtTmp = lpt_arraySort[1];
   }
   else if (channel_ == mmee)
   {
-    float lpt_arraySort[] = {l3Pt, l4Pt}; // pt switched by SetVariables function
+    //float lpt_arraySort[] = {l3Pt, l4Pt}; // pt switched by SetVariables function
+    double lpt_arraySort[] = {l3Pt, l4Pt};
     std::sort(lpt_arraySort, lpt_arraySort + 2, std::greater<float>());
     e1PtTmp = lpt_arraySort[0];
     e2PtTmp = lpt_arraySort[1];
-  }
+    }
 
   //finish sorting lepton pt
 
@@ -2137,29 +2241,58 @@ if (writeNtp_ && writeNtpFullRange){
   // }
   // if (isMC_)
   //   SafeHistFill(histMap1D_, getHistName("nTruePU", variation.second), nTruePU, weight);
-  /*if  ((isMC_) && (channel_ == mmmm))
-    //     if(channel_ == mmmm)                                                                            
-    {
-      cout<<"--------------------------------------------------"<<endl;
-      cout<<"event:="<<evt<<endl;
-      cout<<"lumi:="<<evt<<endl;
-      cout<<"run:="<<run<<endl;
-      cout<<"channel:="<<channel_<<endl;
-      cout<<"Genweight"<<genWeight<<",weights="<<weight<<endl;
-      cout<<"MassZ1="<<Z1mass<<",MassZ2"<<Z2mass<<endl;
-      cout<<"Mass4l="<<Mass<<endl;
-      cout<<"l1Pt="<<l1Pt<<",l1Eta="<<l1Eta<<",l1Charge="<<l1Charge<<endl;
-      cout<<"l2Pt="<<l2Pt<<",l2Eta="<<l2Eta<<",l2Charge="<<l2Charge<<endl;
-      cout<<"l3Pt="<<l3Pt<<",l3Eta="<<l3Eta<<",l3Charge="<<l3Charge<<endl;
-      cout<<"l4Pt="<<l4Pt<<",l4Eta="<<l4Eta<<",l4Charge="<<l4Charge<<endl;
-      cout<<"cosTheta_1="<<cosTheta_1<<endl;
-      cout<<"cosTheta_2="<<cosTheta_2<<endl;
-      cout<<"cosTheta_3="<<cosTheta_3<<endl;
-      cout<<"cosTheta_4="<<cosTheta_4<<endl;
-      cout<<"--------------------------------------------------"<<endl;
-  //   SafeHistFill(histMap1D_, getHistName("nTruePU", variation.second), nTruePU, weight);                
-  }*/
-  //}
+  //if  ((isMC_) && (channel_ == mmmm))
+  //if(channel_ == mmmm)
+  /*if (l1Charge<0 && l2Charge>0 && channel_ == eeee) {
+    std::cout<<"lepton2Eta "<<l2Eta<<std::endl;                                                                                   
+    std::cout<<"lepton2Phi "<<l2Phi<<std::endl;                                                                                   
+    std::cout<<"lepton2Mass "<<l2Mass<<std::endl;                                                                                 
+    std::cout<<"lepton2Energy "<<l2Energy<<std::endl;                                                                             
+    std::cout<<"Z1Pt "<<Z1pt<<std::endl;                                                                                          
+    std::cout<<"Z1Eta "<<Z1Eta<<std::endl;                                                                                        
+    std::cout<<"Z1Phi "<<Z1Phi<<std::endl;                                                                                        
+    std::cout<<"Z1Mass "<<Z1mass<<std::endl;                                                                                      
+    std::cout<<"Z2Pt "<<Z2pt<<std::endl;                                                                                          
+    std::cout<<"Z2Eta "<<Z2Eta<<std::endl;                                                                                        
+    std::cout<<"Z2Phi "<<Z2Phi<<std::endl;                                                                                        
+    std::cout<<"Z2Mass "<<Z2mass<<std::endl;                                                                                      
+    std::cout<<"CosTheta_2_Sig "<<cosTheta_2<<",weight"<<weight<<std::endl;
+        std:: cout<<"--------------------------------------------------"<<std::endl;}
+   if (l1Charge>0 && l2Charge<0 && channel_ == eeee) {
+    std::cout<<"lepton1Eta "<<l1Eta<<std::endl;
+    std::cout<<"lepton1Phi "<<l1Phi<<std::endl;
+    std::cout<<"lepton1Mass "<<l1Mass<<std::endl;
+    std::cout<<"lepton1Energy "<<l1Energy<<std::endl;
+    std::cout<<"Z1Pt "<<Z1pt<<std::endl;
+    std::cout<<"Z1Eta "<<Z1Eta<<std::endl;
+    std::cout<<"Z1Phi "<<Z1Phi<<std::endl;
+    std::cout<<"Z1Mass "<<Z1mass<<std::endl;
+    std::cout<<"Z2Pt "<<Z2pt<<std::endl;
+    std::cout<<"Z2Eta "<<Z2Eta<<std::endl;
+    std::cout<<"Z2Phi "<<Z2Phi<<std::endl;
+    std::cout<<"Z2Mass "<<Z2mass<<std::endl;
+    std::cout<<"CosTheta_1_Sig "<<cosTheta_1<<",weight"<<weight<<std::endl;
+    std:: cout<<"--------------------------------------------------"<<std::endl;}*/
+  /*std::cout<<"event:="<<evt<<std::endl;
+  //std:: cout<<"lumi:="<<evt<<std::endl;
+  //std::cout<<"run:="<<run<<std::endl;
+  //std:: cout<<"channel:="<<channel_<<std::endl;
+  std::cout<<"Genweight"<<genWeight<<",weights="<<weight<<std::endl;
+  std:: cout<<"MassZ1="<<Z1mass<<",MassZ2"<<Z2mass<<std::endl;
+  std::cout<<"Mass4l="<<Mass<<std::endl;
+  std:: cout<<"l1Pt="<<l1Pt<<",l1Eta="<<l1Eta<<",l1Phi="<<l1Phi<<",l1Mass="<<l1Mass<<",l1Energy="<<l1Energy<<std::endl;
+  std::cout<<"l2Pt="<<l2Pt<<",l2Eta="<<l2Eta<<",l2Phi="<<l2Phi<<",l2Mass="<<l2Mass<<",l2Energy="<<l2Energy<<std::endl;
+  //std::cout<<"l3Pt="<<l3Pt<<",l3Eta="<<l3Eta<<",l3Charge="<<l3Charge<<std::endl;
+  //std::cout<<"l4Pt="<<l4Pt<<",l4Eta="<<l4Eta<<",l4Charge="<<l4Charge<<std::endl;
+  //std:: cout<<"l1Mass="<<l1Mass<<",l2Mass="<<l2Mass<<",l3Mass="<<l3Mass<<",l4Mass"<<l4Mass<<std::endl;
+  std::cout<<"cosTheta_1="<<cosTheta_1<<std::endl;
+  std::cout<<"cosTheta_2="<<cosTheta_2<<std::endl;
+  //std::cout<<"cosTheta_3="<<cosTheta_3<<std::endl;
+  //std::cout<<"cosTheta_4="<<cosTheta_4<<std::endl;
+  std::cout<<"--------------------------------------------------"<<std::endl;*/
+     SafeHistFill(histMap1D_, getHistName("nTruePU", variation.second), nTruePU, weight);                
+     //  }
+     //}
   //}
 
 }
