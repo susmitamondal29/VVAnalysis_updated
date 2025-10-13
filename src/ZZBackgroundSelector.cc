@@ -44,8 +44,10 @@ void ZZBackgroundSelector::SetupNewDirectory()
       AddObject<TH1D>(MassHistPPPF_, ("Mass_PPPF_"+channelName_).c_str(), "Mass; m_{4l} [GeV]; Events;", 40, 70, 870);
       AddObject<TH1D>(MassHistPPFF_, ("Mass_PPFF_"+channelName_).c_str(), "Mass; m_{4l} [GeV]; Events;", 40, 70, 870);
       
-       AddObject<TH1D>(CosThetaHistPPPF_, ("CosTheta_PPPF_"+channelName_).c_str(), "CosTheta; PolAngle_{4l} [GeV]; Events;", 80, -1.0, 1.0);
-      AddObject<TH1D>(CosThetaHistPPFF_, ("CosTheta_PPFF_"+channelName_).c_str(), "CosTheta; PolAngle_{4l} [GeV]; Events;", 80, -1.0, 1.0);
+       AddObject<TH1D>(CosThetaHist1PPPF_, ("CosTheta1_PPPF_"+channelName_).c_str(), "CosTheta1; PolAngle_{4l} [GeV]; Events;", 20, -1.0, 1.0);
+       AddObject<TH1D>(CosThetaHist1PPFF_, ("CosTheta1_PPFF_"+channelName_).c_str(), "CosTheta1; PolAngle_{4l} [GeV]; Events;", 20, -1.0, 1.0);
+       AddObject<TH1D>(CosThetaHist2PPPF_, ("CosTheta2_PPPF_"+channelName_).c_str(), "CosTheta2; PolAngle_{4l} [GeV]; Events;", 20, -1.0, 1.0);
+       AddObject<TH1D>(CosThetaHist2PPFF_, ("CosTheta2_PPFF_"+channelName_).c_str(), "CosTheta2; PolAngle_{4l} [GeV]; Events;", 20, -1.0, 1.0);
       AddObject<TH1D>(RapidityDiffHistPPPF_, ("RapidityDiff_PPPF_"+channelName_).c_str(), "RapidityDiff; RapidityDiff_{4l} [GeV]; Events;", 20, 0, 4);
       AddObject<TH1D>(RapidityDiffHistPPFF_, ("RapidityDiff_PPFF_"+channelName_).c_str(), "RapidityDiff; Rapidityfiff_{4l} [GeV]; Events;", 20, 0, 4);
        AddObject<TH1D>(DeltaPhiHistPPPF_, ("DeltaPhi_PPPF_"+channelName_).c_str(), "DeltaPhi; DeltaPhi [GeV]; Events;", 16, 0, 4);
@@ -54,12 +56,12 @@ void ZZBackgroundSelector::SetupNewDirectory()
       AddObject<TH1D>(WeightsHistmmee_, ("Weights_mmee_"+channelName_).c_str(), "Weight; Event Weight; Events;", 10, -5, 5);
       AddObject<TH1D>(WeightsHisteemm_, ("Weights_eemm_"+channelName_).c_str(), "Weight; Event Weight; Events;", 100, -5, 5);
 }
-double computeLeptonEnergy(double pt, double eta, double m) {
+/*double computeLeptonEnergy(double pt, double eta, double m) {
     // Calculate energy using E = sqrt(pt^2 * cosh^2(eta) + m^2)
     double cosh_eta = std::cosh(eta);
     double energy = std::sqrt((pt * cosh_eta) * (pt * cosh_eta) + m * m);
     return energy;
-}
+    }*/
 double costheta_bkg(const TLorentzVector& z1P4_input,
                        const TLorentzVector& z2P4_input,
                        const TLorentzVector& leptonP4_input) {
@@ -78,7 +80,12 @@ double costheta_bkg(const TLorentzVector& z1P4_input,
 
     return cosTheta_bkg;
 }
-
+double rapidity_bkg(TLorentzVector z1P4, TLorentzVector z2P4)
+ {
+   double  Z1Rapidity = z1P4.Rapidity();
+   double  Z2Rapidity = z2P4.Rapidity();
+   return (abs((Z1Rapidity)-(Z2Rapidity)));
+ };
 
 float ZZBackgroundSelector::getEventWeight(Long64_t entry) {
     float evtwgt = 0;
@@ -116,224 +123,29 @@ float ZZBackgroundSelector::getEventWeight(Long64_t entry) {
 	    l2Mass=0.000511;
 	     l2Energy= computeLeptonEnergy (l2Pt,l2Eta,l2Mass);
 	     }}*/
-	    Z1MassHistPPPF_->Fill(Z1mass, weight);
+	    
+		Z1MassHistPPPF_->Fill(Z1mass, weight);
 	    Z2MassHistPPPF_->Fill(Z2mass, weight);
 	    MassHistPPPF_->Fill(Mass,weight);
 	    if (l1Charge>0 && l2Charge<0){
-	      CosThetaHistPPPF_->Fill(cosTheta_1_bkg,weight);}
-	    if (l2Charge>0 && l1Charge<0){
-	      CosThetaHistPPPF_->Fill(cosTheta_2_bkg,weight);}
-	     // if       ( cosTheta_1>=0  && cosTheta_1<0.025 && channel_ == eeee) {
-		 //if (l1Charge>0 && l2Charge<0 && channel_ == eeee){
-		 //if ( channel_ == eeee){
-		 /*std::cout<<"lepton1Pt "<<l1Pt<<std::endl;
-		   std::cout<<"lepton1Eta "<<l1Eta<<std::endl;
-		   std::cout<<"lepton1Phi "<<l1Phi<<std::endl;
-		   std::cout<<"lepton1Mass "<<l1Mass<<std::endl;
-		   std::cout<<"lepton1Energy "<<l1Energy<<std::endl;
-		   std::cout<<"lepton2Pt "<<l2Pt<<std::endl;
-		   std::cout<<"lepton2Eta "<<l2Eta<<std::endl;
-                 std::cout<<"lepton2Phi "<<l2Phi<<std::endl;
-                 std::cout<<"lepton2Mass "<<l2Mass<<std::endl;
-                 std::cout<<"lepton2Energy "<<l2Energy<<std::endl;
-		 std::cout<<"Z1Pt "<<Z1pt<<std::endl;
-		   std::cout<<"Z1Eta "<<Z1Eta<<std::endl;
-		   std::cout<<"Z1Phi "<<Z1Phi<<std::endl;
-		   std::cout<<"Z1Mass "<<Z1mass<<std::endl;
-		   std::cout<<"Z2Pt "<<Z2pt<<std::endl;
-		   std::cout<<"Z2Eta "<<Z2Eta<<std::endl;
-		   std::cout<<"Z2Phi "<<Z2Phi<<std::endl;
-		   std::cout<<"Z2Mass "<<Z2mass<<std::endl;                 
+	      CosThetaHist1PPPF_->Fill(cosTheta_1_bkg,weight);}
+	    else if (l2Charge>0 && l1Charge<0){
+	      CosThetaHist1PPPF_->Fill(cosTheta_2_bkg,weight);}
+	     if (l3Charge>0 && l4Charge<0){
+              CosThetaHist2PPPF_->Fill(cosTheta_3_bkg,weight);}
+            else if (l4Charge>0 && l3Charge<0){
+              CosThetaHist2PPPF_->Fill(cosTheta_4_bkg,weight);}
                  
                  
-		 std::cout<<"CosTheta_1_PPPF "<<cosTheta_1<<"weight"<<weight<<std::endl;
-		 std::cout<<"----------------------"<<std::endl;}
-		 CosThetaHistPPPF_->Fill(cosTheta_1,weight);}*/
-	    //if (l3Charge>0 && l4Charge<0){
-	    //  CosThetaHistPPPF_->Fill(cosTheta_3_bkg,weight);}
-	    // if (l4Charge>0 && l3Charge<0){
-	    // CosThetaHistPPPF_->Fill(cosTheta_4_bkg,weight);
-	    /*std::cout<<"----------------------"<<std::endl;
-		 std::cout<<"lepton1Pt "<<l1Pt<<std::endl;
-               std::cout<<"lepton1Eta "<<l1Eta<<std::endl;
-              std::cout<<"lepton1Phi "<<l1Phi<<std::endl;
-                   std::cout<<"lepton1Mass "<<l1Mass<<std::endl;
-                   std::cout<<"lepton1Energy "<<l1Energy<<std::endl;
-                   std::cout<<"lepton2Pt "<<l2Pt<<std::endl;
-                 std::cout<<"lepton2Eta "<<l2Eta<<std::endl;
-                 std::cout<<"lepton2Phi "<<l2Phi<<std::endl;
-                 std::cout<<"lepton2Mass "<<l2Mass<<std::endl;
-                 std::cout<<"lepton2Energy "<<l2Energy<<std::endl;
-		 std::cout<<"lepton3Pt "<<l3Pt<<std::endl;
-               std::cout<<"lepton3Eta "<<l3Eta<<std::endl;
-              std::cout<<"lepton3Phi "<<l3Phi<<std::endl;
-                   std::cout<<"lepton3Mass "<<l3Mass<<std::endl;
-                   std::cout<<"lepton3Energy "<<l3Energy<<std::endl;
-                   std::cout<<"lepton4Pt "<<l4Pt<<std::endl;
-                 std::cout<<"lepton4Eta "<<l4Eta<<std::endl;
-                 std::cout<<"lepton4Phi "<<l4Phi<<std::endl;
-                 std::cout<<"lepton4Mass "<<l4Mass<<std::endl;
-                 std::cout<<"lepton4Energy "<<l4Energy<<std::endl;
-                 std::cout<<"Z1Pt "<<Z1pt<<std::endl;
-                 std::cout<<"Z1Eta "<<Z1Eta<<std::endl;
-                 std::cout<<"Z1Phi "<<Z1Phi<<std::endl;
-                 std::cout<<"Z1Mass "<<Z1mass<<std::endl;
-                 std::cout<<"Z2Pt "<<Z2pt<<std::endl;
-                 std::cout<<"Z2Eta "<<Z2Eta<<std::endl;
-                 std::cout<<"Z2Phi "<<Z2Phi<<std::endl;
-                 std::cout<<"Z2Mass "<<Z2mass<<std::endl;
-		std::cout<<"CosTheta_PPPF "<<cosTheta_4_bkg<<"weight"<<weight<<std::endl;
-		std::cout<<"----------------------"<<std::endl;*/
-		if (l1Charge>0 && l2Charge<0){
-		std::cout<<"----------------------"<<std::endl;
-		std::cout<<"lepton1Px "<<l1Pt*std::cos(l1Phi)<<std::endl;
-		std::cout<<"lepton1Py "<<l1Pt*std::sin(l1Phi)<<std::endl;
-		std::cout<<"lepton1Pz"<<l1Pt*std::sinh(l1Eta)<<std::endl;
-		std::cout<<"lepton1Energy "<<l1Energy<<std::endl;
-		std::cout<<"----------------------"<<std::endl;
-		std::cout<<"lepton2Px "<<l2Pt*std::cos(l2Phi)<<std::endl;
-                std::cout<<"lepton2Py "<<l2Pt*std::sin(l2Phi)<<std::endl;
-                std::cout<<"lepton2Pz"<<l2Pt*std::sinh(l2Eta)<<std::endl;
-                std::cout<<"lepton2Energy "<<l2Energy<<std::endl;
-		std::cout<<"----------------------"<<std::endl;
-		std::cout<<"Z1Px "<<Z1pt*std::cos(Z1Phi)<<std::endl;
-                std::cout<<"Z1Py "<<Z1pt*std::sin(Z1Phi)<<std::endl;
-                std::cout<<"Z1Pz"<<Z1pt*std::sinh(Z1Eta)<<std::endl;
-                std::cout<<"Z1Mass "<<Z1mass<<std::endl;
-		std::cout<<"----------------------"<<std::endl;
-		std::cout<<"CosTheta_1 "<<cosTheta_1_bkg<<std::endl;
-		}
-	       /*else  if (l2Charge >0 && l1Charge<0) {
-	       //CosThetaHistPPPF_->Fill(cosTheta_2,weight);
-	     if       ( cosTheta_2>=0  && cosTheta_2<0.025 && channel_ == eeee) {
-	       //if (l1Charge>0 && l2Charge<0 && channel_ == eeee){
-	       //if (channel_ == eeee){
-	       std::cout<<"lepton1Pt "<<l1Pt<<std::endl;
-	       std::cout<<"lepton1Eta "<<l1Eta<<std::endl;
-	      std::cout<<"lepton1Phi "<<l1Phi<<std::endl;
-                   std::cout<<"lepton1Mass "<<l1Mass<<std::endl;
-                   std::cout<<"lepton1Energy "<<l1Energy<<std::endl;
-		   std::cout<<"lepton2Pt "<<l2Pt<<std::endl;
-                 std::cout<<"lepton2Eta "<<l2Eta<<std::endl;
-                 std::cout<<"lepton2Phi "<<l2Phi<<std::endl;
-                 std::cout<<"lepton2Mass "<<l2Mass<<std::endl;
-		 std::cout<<"lepton2Energy "<<l2Energy<<std::endl;
-		 std::cout<<"Z1Pt "<<Z1pt<<std::endl;
-                 std::cout<<"Z1Eta "<<Z1Eta<<std::endl;
-                 std::cout<<"Z1Phi "<<Z1Phi<<std::endl;
-                 std::cout<<"Z1Mass "<<Z1mass<<std::endl;
-                 std::cout<<"Z2Pt "<<Z2pt<<std::endl;
-                 std::cout<<"Z2Eta "<<Z2Eta<<std::endl;
-                 std::cout<<"Z2Phi "<<Z2Phi<<std::endl;
-                 std::cout<<"Z2Mass "<<Z2mass<<std::endl;
-		 std::cout<<"CosTheta_2_PPPF "<<cosTheta_2<<",weight"<<weight<<std::endl;
-		 std::cout<<"----------------------"<<std::endl;}
-	     
-		 CosThetaHistPPPF_->Fill(cosTheta_2,weight);}*/
-	    
-	     //std::cout<<"PPPF----------------------"<<std::endl;
-            
-	     //CosThetaHistPPPF_->Fill(cosTheta_3,weight);
-	     //CosThetaHistPPPF_->Fill(cosTheta_4,weight);
-	     RapidityDiffHistPPPF_->Fill(rapidityDiff,weight);
-	     DeltaPhiHistPPPF_->Fill(dPhill,weight);
-	     
-	  }
-	}
-         evtwgt = (getl4FakeRate(entry)*weight);
-         //WeightsHistPPPF_->Fill(1,evtwgt);
-      }
-     
-      if (IsPPFFRegion()) {
-        if (true) {
-	   if (ZZSelection()){
-	     
-	     /* if(channel_==eeee || channel_==eemm){
-	     if(l1Mass<0) {
-	     l1Mass=0.000511;
-	     l1Energy= computeLeptonEnergy (l1Pt,l1Eta,l1Mass);}
-	     if(l2Mass<0) {
-              l2Mass=0.000511;
-              l2Energy= computeLeptonEnergy (l2Pt,l2Eta,l2Mass);
-	      }}*/
-	  //std::cout<<"Weight in PPFF: "<<weight<<std::endl;
-            Z1MassHistPPFF_->Fill(Z1mass, weight);
-            Z2MassHistPPFF_->Fill(Z2mass, weight);
-            MassHistPPFF_->Fill(Mass,weight);
-	    /*if (l3Charge>0 && l4Charge<0){
-	      CosThetaHistPPFF_->Fill(cosTheta_3_bkg,weight);}
-	    else if (l4Charge>0 && l3Charge<0){
-	      CosThetaHistPPFF_->Fill(cosTheta_4_bkg,weight);}
-	    if (l3Charge>0 && l4Charge<0){
-	    std::cout<<"----------------------"<<std::endl;
-                std::cout<<"lepton3Px "<<l3Pt*std::cos(l3Phi)<<std::endl;
-                std::cout<<"lepton3Py "<<l3Pt*std::sin(l3Phi)<<std::endl;
-                std::cout<<"lepton3Pz"<<l3Pt*std::sinh(l3Eta)<<std::endl;
-                std::cout<<"lepton3Energy "<<l3Energy<<std::endl;
-                std::cout<<"----------------------"<<std::endl;
-                std::cout<<"lepton4Px "<<l4Pt*std::cos(l4Phi)<<std::endl;
-                std::cout<<"lepton4Py "<<l4Pt*std::sin(l4Phi)<<std::endl;
-                std::cout<<"lepton4Pz"<<l4Pt*std::sinh(l4Eta)<<std::endl;
-                std::cout<<"lepton4Energy "<<l4Energy<<std::endl;
-                std::cout<<"----------------------"<<std::endl;
-                std::cout<<"Z2Px "<<Z2pt*std::cos(Z2Phi)<<std::endl;
-                std::cout<<"Z2Py "<<Z2pt*std::sin(Z2Phi)<<std::endl;
-                std::cout<<"Z2Pz"<<Z2pt*std::sinh(Z2Eta)<<std::endl;
-                std::cout<<"Z2Mass "<<Z1mass<<std::endl;
-                std::cout<<"----------------------"<<std::endl;
-                std::cout<<"CosTheta_3_PPFF "<<cosTheta_3_bkg<<std::endl;}*/
 	    if (l1Charge>0 && l2Charge<0){                                                                                                   
-              CosThetaHistPPFF_->Fill(cosTheta_1_bkg,weight);}                                                                                
+              CosThetaHist1PPFF_->Fill(cosTheta_1_bkg,weight);}                                                                                
             else if (l2Charge>0 && l1Charge<0){                                                                                               
-              CosThetaHistPPFF_->Fill(cosTheta_2_bkg,weight);}   
-	    /*if (l1Charge>0 && l2Charge<0){
-	     
-	       if       ( cosTheta_1>=0  && cosTheta_1<0.025) {
-                 std::cout<<"lepton1Pt "<<l1Pt<<std::endl;
-                 std::cout<<"lepton1Eta "<<l1Eta<<std::endl;
-                 std::cout<<"lepton1Phi "<<l1Phi<<std::endl;
-                 std::cout<<"lepton1Mass "<<l1Mass<<std::endl;
-                 std::cout<<"Z1Pt "<<Z1pt<<std::endl;
-                 std::cout<<"Z1Eta "<<Z1Eta<<std::endl;
-                 std::cout<<"Z1Phi "<<Z1Phi<<std::endl;
-                 std::cout<<"Z1Mass "<<Z1mass<<std::endl;
-                 std::cout<<"Z2Pt "<<Z2pt<<std::endl;
-                 std::cout<<"Z2Eta "<<Z2Eta<<std::endl;
-                 std::cout<<"Z2Phi "<<Z2Phi<<std::endl;
-                 std::cout<<"Z2Mass "<<Z2mass<<std::endl;
-
-
-                 std::cout<<"CosTheta_1_PPFF "<<cosTheta_1<<"weight"<<weight<<std::endl;
-		 std::cout<<"----------------------"<<std::endl;}
-
-            
-	      CosThetaHistPPFF_->Fill(cosTheta_1,weight);}*/
-
-	    /*else if (l2Charge >0 && l1Charge<0) {
-	       if       ( cosTheta_2>=0  && cosTheta_2<0.025) {
-	     std::cout<<"lepton2Pt "<<l2Pt<<std::endl;
-                 std::cout<<"lepton2Eta "<<l2Eta<<std::endl;
-                 std::cout<<"lepton2Phi "<<l2Phi<<std::endl;
-                 std::cout<<"lepton2Mass "<<l2Mass<<std::endl;
-                 std::cout<<"Z1Pt "<<Z1pt<<std::endl;
-                 std::cout<<"Z1Eta "<<Z1Eta<<std::endl;
-                 std::cout<<"Z1Phi "<<Z1Phi<<std::endl;
-                 std::cout<<"Z1Mass "<<Z1mass<<std::endl;
-                 std::cout<<"Z2Pt "<<Z2pt<<std::endl;
-                 std::cout<<"Z2Eta "<<Z2Eta<<std::endl;
-                 std::cout<<"Z2Phi "<<Z2Phi<<std::endl;
-                 std::cout<<"Z2Mass "<<Z2mass<<std::endl;
-                 std::cout<<"CosTheta_2_PPFF "<<cosTheta_2<<",weight"<<weight<<std::endl;
-		 std::cout<<"PPFF----------------------"<<std::endl;} 
-           
-             
-	     CosThetaHistPPFF_->Fill(cosTheta_2,weight);}*/
-	   //std::cout<<"PPFF----------------------"<<std::endl;
-
-
-	    //CosThetaHistPPFF_->Fill(cosTheta_3,weight);
-	    //CosThetaHistPPFF_->Fill(cosTheta_4,weight);
-	    RapidityDiffHistPPFF_->Fill(rapidityDiff,weight);
+              CosThetaHist1PPFF_->Fill(cosTheta_2_bkg,weight);}   
+	     if (l3Charge>0 && l4Charge<0){
+              CosThetaHist2PPFF_->Fill(cosTheta_3_bkg,weight);}
+            else if (l4Charge>0 && l3Charge<0){
+              CosThetaHist2PPFF_->Fill(cosTheta_4_bkg,weight);}
+	    RapidityDiffHistPPFF_->Fill(rapidityDiff_bkg,weight);
 	    DeltaPhiHistPPFF_->Fill(dPhill,weight);
 	   }
 	}
@@ -453,6 +265,7 @@ void ZZBackgroundSelector::SetZ1Z2Masses() {
       cosTheta_3_bkg = costheta_bkg(Z24,Z14,lepton3);}
     if (l4Charge>0 && l3Charge<0){
       cosTheta_4_bkg = costheta_bkg(Z24,Z14,lepton4);}
+    rapidityDiff_bkg = rapidity_bkg(Z14,Z24);
     if(tightZ1Leptons() && !tightZ2Leptons()){
       //std::cout<<"Entering tightZ1Leptons() && !tightZ2Leptons() loop: "<<std::endl;  
       Z1mass = (lepton1+lepton2).M();
@@ -464,17 +277,6 @@ void ZZBackgroundSelector::SetZ1Z2Masses() {
       Z1Eta = (lepton1+lepton2).Eta();
 
       Z2Eta = (lepton3+lepton4).Eta();
-      /*std::cout<<"inside if statement"<<std::endl;
-
-      std::cout<<"Z1Pt "<<Z1pt<<std::endl;
-      std::cout<<"Z1Eta "<<Z1Eta<<std::endl;
-      std::cout<<"Z1Phi "<<Z1Phi<<std::endl;
-      std::cout<<"Z1Mass "<<Z1mass<<std::endl;
-      std::cout<<"Z2Pt "<<Z2pt<<std::endl;
-      std::cout<<"Z2Eta "<<Z2Eta<<std::endl;
-      std::cout<<"Z2Phi "<<Z2Phi<<std::endl;
-      std::cout<<"Z2Mass "<<Z2mass<<std::endl;
-      std::cout<<"-------------------"<<std::endl;*/
 		 //In Z2 what is l3 and l4 can change the fake rate a little bit.
       if(Z2FP()){
         float templ3Pt = l3Pt;
@@ -529,6 +331,12 @@ void ZZBackgroundSelector::SetZ1Z2Masses() {
       int templ2PdgId = l2PdgId;
       l2PdgId = l4PdgId;
       l4PdgId = templ2PdgId;
+      int templ1Charge = l1Charge;
+      l1Charge = l3Charge;
+      l3Charge = templ1Charge;
+      int templ2Charge = l2Charge;
+      l2Charge = l4Charge;
+      l4Charge = templ2Charge;
       //Now we have two fakes identified by l3Pt, l4Pt and l3Eta, l4Eta
       //Further special condition between l3,l4 which one to use for l4fake rate in PPPF region, their IDs still are labeled l1IsTight,l2IsTight
       if(Z1FP()){

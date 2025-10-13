@@ -18,9 +18,11 @@ public :
     //4lMass Histogram
     TH1D* MassHistPPPF_;
     TH1D* MassHistPPFF_;
-    TH1D* CosThetaHistPPPF_;
-    TH1D* CosThetaHistPPFF_;
-    TH1D* RapidityDiffHistPPPF_;
+    TH1D* CosThetaHist1PPPF_;
+    TH1D* CosThetaHist1PPFF_;
+  TH1D* CosThetaHist2PPPF_;
+    TH1D* CosThetaHist2PPFF_;
+  TH1D* RapidityDiffHistPPPF_;
     TH1D* RapidityDiffHistPPFF_;    
     TH1D* DeltaPhiHistPPPF_;
     TH1D* DeltaPhiHistPPFF_;
