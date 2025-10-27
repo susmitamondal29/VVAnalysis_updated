@@ -135,7 +135,20 @@ float ZZBackgroundSelector::getEventWeight(Long64_t entry) {
               CosThetaHist2PPPF_->Fill(cosTheta_3_bkg,weight);}
             else if (l4Charge>0 && l3Charge<0){
               CosThetaHist2PPPF_->Fill(cosTheta_4_bkg,weight);}
-                 
+ 	RapidityDiffHistPPPF_->Fill(rapidityDiff,weight);
+	     DeltaPhiHistPPPF_->Fill(dPhill,weight);
+	     
+	  }
+	}
+         evtwgt = (getl4FakeRate(entry)*weight);
+         //WeightsHistPPPF_->Fill(1,evtwgt);
+      }
+        if (IsPPFFRegion()) {
+        if (true) {
+	   if (ZZSelection()){
+	      Z1MassHistPPFF_->Fill(Z1mass, weight);
+            Z2MassHistPPFF_->Fill(Z2mass, weight);
+            MassHistPPFF_->Fill(Mass,weight);              
                  
 	    if (l1Charge>0 && l2Charge<0){                                                                                                   
               CosThetaHist1PPFF_->Fill(cosTheta_1_bkg,weight);}                                                                                
