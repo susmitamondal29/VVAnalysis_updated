@@ -15,11 +15,11 @@ void ZZSelector::Init(TTree *tree)
       {pileupDown, "CMS_pileupDown"},
   };
   doSystematics_ = false; // true; // false;//true;
-
+   //doSystematics_ = true;
   // This would be set true inside ZZBackground Selector
   // isNonPrompt_ = false;
 
-  systHists_ = {"yield","Mass","MassFull","nJets","jetPt[1]","jetPt[0]","jetEta[0]","jetEta[1]","absjetEta[0]","absjetEta[1]","mjj","dEtajj","Mass0j","Mass1j","Mass2j","Mass3j","Mass34j","Mass4j","Mass0jFull","Mass1jFull","Mass2jFull","Mass3jFull","Mass34jFull","Mass4jFull","CosTheta","ZMass","Z1Mass","Z2Mass","ZZPt","Z1Pt","Z2Pt","Z1Phi","Z2Phi","dPhiZ1Z2","ZPt","LepPt","LepEta","dPhiOSll","RapidityDiff"} ;
+   systHists_ = {"yield","Mass","MassFull","nJets","jetPt[1]","jetPt[0]","jetEta[0]","jetEta[1]","absjetEta[0]","absjetEta[1]","mjj","dEtajj","Mass0j","Mass1j","Mass2j","Mass3j","Mass34j","Mass4j","Mass0jFull","Mass1jFull","Mass2jFull","Mass3jFull","Mass34jFull","Mass4jFull","CosTheta1","CosTheta2","ZMass","Z1Mass","Z2Mass","ZZPt","Z1Pt","Z2Pt","Z1Phi","Z2Phi","dPhiZ1Z2","ZPt","LepPt","LepEta","dPhiOSll","RapidityDiff","CosTheta1_PPFF","CosTheta1_PPPF","CosTheta2_PPPF","CosTheta2_PPFF","CosThetaStar"};
   // hists1D_ = {
   //      "yield", "backgroundControlYield","nTruePU","nvtx","ZMass","Z1Mass","Z2Mass","ZZPt",
   //      "Z1Pt","Z2Pt","Z1Phi","Z2Phi","dPhiZ1Z2","ZPt","LepPt","LepEta","Lep12Pt","Lep12Eta",
@@ -28,12 +28,12 @@ void ZZSelector::Init(TTree *tree)
   //      "Z2lep2_Eta","Z2lep2_Phi","Z2lep2_Pt","Z2lep2_PdgId","Mass","nJets",
   // };
 
-  hists1D_ = {"yield","Z1Mass","Z2Mass","ZMass","ZZPt","ZZEta","dPhiZ1Z2","dRZ1Z2","ZPt","LepPt","LepPtFull","LepEta", "Lep1Eta", "Lep2Eta", "Lep3Eta", "Lep4Eta","PassTriggerFull","LepPt1","LepPt2","LepPt3","LepPt4","LepPt1Full","LepPt2Full","LepPt3Full","LepPt4Full","e1PtSortedFull","e2PtSortedFull","e1PtSorted","e2PtSorted","Mass","nJets","MassFull","SIP3D","PVDZ","deltaPVDZ_sameZ","deltaPVDZ_diffZ", "scaleWeightIDs", "Z1PolCos", "Z2PolCos", "Lep1Energy", "Lep2Energy", "Lep3Energy", "Lep4Energy", "LepIso", "Lep1Iso", "Lep2Iso", "Lep3Iso", "Lep4Iso","CosTheta","dPhiOSll","RapidityDiff"};
+ hists1D_ = {"yield","Z1Mass","Z2Mass","ZMass","ZZPt","ZZEta","dPhiZ1Z2","dRZ1Z2","ZPt","LepPt","LepPtFull","LepEta", "Lep1Eta", "Lep2Eta", "Lep3Eta", "Lep4Eta","PassTriggerFull","LepPt1","LepPt2","LepPt3","LepPt4","LepPt1Full","LepPt2Full","LepPt3Full","LepPt4Full","e1PtSortedFull","e2PtSortedFull","e1PtSorted","e2PtSorted","Mass","nJets","MassFull","SIP3D","PVDZ","deltaPVDZ_sameZ","deltaPVDZ_diffZ", "scaleWeightIDs", "Z1PolCos", "Z2PolCos", "Lep1Energy", "Lep2Energy", "Lep3Energy", "Lep4Energy", "LepIso", "Lep1Iso", "Lep2Iso", "Lep3Iso", "Lep4Iso","CosTheta1","CosTheta2","dPhiOSll","RapidityDiff","CosThetaStar"};
 
   jetTest2D_ = {}; // also defined in hists1D_ to pass checks in InitializeHistogramsFromConfig()
   jethists1D_ = {"Mass","MassFull","nJets","jetPt[1]","jetPt[0]","jetEta[0]","jetEta[1]","absjetEta[0]","absjetEta[1]","mjj","dEtajj","Mass0j","Mass1j","Mass2j","Mass3j","Mass34j","Mass4j","Mass0jFull","Mass1jFull","Mass2jFull","Mass3jFull","Mass34jFull","Mass4jFull"};
 
-  weighthists1D_ = {"yield","Z1Mass","Z2Mass","ZMass","ZZPt","ZZEta","dPhiZ1Z2","dRZ1Z2","ZPt","LepPt","LepPtFull","LepEta", "Lep1Eta", "Lep2Eta", "Lep3Eta", "Lep4Eta","PassTriggerFull","LepPt1","LepPt2","LepPt3","LepPt4","LepPt1Full","LepPt2Full","LepPt3Full","LepPt4Full","e1PtSortedFull","e2PtSortedFull","e1PtSorted","e2PtSorted","Mass","nJets","MassFull","SIP3D","PVDZ","deltaPVDZ_sameZ","deltaPVDZ_diffZ", "Z1PolCos", "Z2PolCos", "Lep1Energy", "Lep2Energy", "Lep3Energy", "Lep4Energy", "LepIso", "Lep1Iso", "Lep2Iso", "Lep3Iso", "Lep4Iso","CosTheta","dPhiOSll","RapidityDiff"};
+  weighthists1D_ = {"yield","Z1Mass","Z2Mass","ZMass","ZZPt","ZZEta","dPhiZ1Z2","dRZ1Z2","ZPt","LepPt","LepPtFull","LepEta", "Lep1Eta", "Lep2Eta", "Lep3Eta", "Lep4Eta","PassTriggerFull","LepPt1","LepPt2","LepPt3","LepPt4","LepPt1Full","LepPt2Full","LepPt3Full","LepPt4Full","e1PtSortedFull","e2PtSortedFull","e1PtSorted","e2PtSorted","Mass","nJets","MassFull","SIP3D","PVDZ","deltaPVDZ_sameZ","deltaPVDZ_diffZ", "Z1PolCos", "Z2PolCos", "Lep1Energy", "Lep2Energy", "Lep3Energy", "Lep4Energy", "LepIso", "Lep1Iso", "Lep2Iso", "Lep3Iso", "Lep4Iso","CosTheta1","CosTheta2","dPhiOSll","RapidityDiff","CosThetaStar"};
   //weighthists1D_ = {"yield","Mass","MassFull","nJets","jetPt[1]","jetPt[0]","jetEta[0]","jetEta[1]","absjetEta[0]","absjetEta[1]","mjj","dEtajj","Mass0j","Mass1j","Mass2j","Mass3j","Mass34j","Mass4j","Mass0jFull","Mass1jFull","Mass2jFull","Mass3jFull","Mass34jFull","Mass4jFull"};
   ZZSelectorBase::Init(tree);
   // fCutFormula = new TTreeFormula("CutFormula", fOption, fChain);
@@ -498,7 +498,7 @@ if (channel_ == mmee )
 
   dRZZ = deltaRZZ(Z1Eta, Z2Eta, dPhiZZ);
 }
-auto rapidity = [](TLorentzVector z1P4, TLorentzVector z2P4)
+double rapidity(TLorentzVector z1P4, TLorentzVector z2P4)
  {
    double  Z1Rapidity = z1P4.Rapidity();
    double  Z2Rapidity = z2P4.Rapidity();
@@ -521,7 +521,7 @@ auto rapidity = [](TLorentzVector z1P4, TLorentzVector z2P4)
   };*/
 //double Z1Pt = (double)Z1pt
   
-double costheta(const TLorentzVector& z1P4_input,
+/*double costheta(const TLorentzVector& z1P4_input,
                        const TLorentzVector& z2P4_input,
                        const TLorentzVector& leptonP4_input) {
     
@@ -538,8 +538,24 @@ double costheta(const TLorentzVector& z1P4_input,
                       (leptonP4.Vect().Mag() * z1P4.Vect().Mag());
 
     return cosTheta;
-}
+}*/
+std::pair<double,double> costheta(const TLorentzVector& z1P4_input,
+                       const TLorentzVector& z2P4_input,
+                       const TLorentzVector& leptonP4_input){
+	TLorentzVector z1P4 = z1P4_input;
+    TLorentzVector z2P4 = z2P4_input;
+    TLorentzVector leptonP4 = leptonP4_input;
 
+    TLorentzVector zzP4 = z1P4 + z2P4;
+
+    leptonP4.Boost(-z1P4.BoostVector());  // Boost lepton to Z1 rest frame
+    z1P4.Boost(-zzP4.BoostVector());      // Boost Z1 to ZZ rest frame
+
+    double cosTheta = leptonP4.Vect().Dot(z1P4.Vect()) /
+                      (leptonP4.Vect().Mag() * z1P4.Vect().Mag());
+    double cosThetaStar= (z1P4.Vect().Dot(zzP4.Vect()))/(z1P4.Vect().Mag()*zzP4.Vect().Mag());
+    return {cosTheta,cosThetaStar};
+}
 
 void ZZSelector::GetPolarizationAngle()
 {
@@ -596,14 +612,17 @@ void ZZSelector::GetPolarizationAngle()
   //l4P4.SetPtEtaPhiM(l4Pt,l4Eta,l4Phi,l4Mass);
   l4P4.SetPtEtaPhiE(l4Pt,l4Eta,l4Phi,l4Energy);
   //z2P4=l3P4+l4P4;
+  
     if (l1Charge>0 && l2Charge<0){ 
-      cosTheta_1 = costheta(z1P4,z2P4,l1P4);}
+      cosTheta_1 = costheta(z1P4,z2P4,l1P4).first;}
   if (l2Charge>0 && l1Charge<0){
-    cosTheta_2 = costheta(z1P4,z2P4,l2P4);}
+    cosTheta_2 = costheta(z1P4,z2P4,l2P4).first;}
   if (l3Charge>0 && l4Charge<0){
-    cosTheta_3 = costheta(z2P4,z1P4,l3P4);}
+    cosTheta_3 = costheta(z2P4,z1P4,l3P4).first;}
   if (l4Charge>0 && l3Charge<0){
-    cosTheta_4 = costheta(z2P4,z1P4,l4P4);}
+    cosTheta_4 = costheta(z2P4,z1P4,l4P4).first;}
+
+  cosThetaStar_1= costheta(z1P4,z2P4,l1P4).second;
 
   rapidityDiff = rapidity(z1P4,z2P4);
 }
@@ -1465,7 +1484,7 @@ void ZZSelector::FillHistograms(Long64_t entry, std::pair<Systematic, std::strin
     return;
   }
 
-//Begin filling ntuple
+  /*///Begin filling ntuple
 //Fill variables for full mass range
   int nJets_tmp = jetPt->size();
   float jpt0_tmp;
@@ -1521,7 +1540,7 @@ if (writeNtp_ && writeNtpFullRange){
 
     }
     ftntp_->Fill();
-}
+    }*/
   // if (!Passes2e2mExtraCut(entry)) //Apply extra 23/12 GeV cut to electrons in 2e2m channel
   //   {
   //  return;
@@ -1643,8 +1662,7 @@ if (writeNtp_ && writeNtpFullRange){
 //      SafeHistFill(histMap1D_, getHistName("Mass4jFull", variation.second), Mass, weight);
     }
   }
-//End filling ntuple
-
+  //End filling ntuple
   // sort lepton pt
   //float lpt_array[] = {l1Pt, l2Pt, l3Pt, l4Pt};
   double lpt_array[] = {l1Pt, l2Pt, l3Pt, l4Pt};
@@ -1939,7 +1957,7 @@ if (writeNtp_ && writeNtpFullRange){
   // std::cout<<run<<":"<<lumi<<":"<<evt<<std::endl;
   // std::cout << "variation.second: "<<variation.second;
 
-//Begin filling ntuple
+  /*//Begin filling ntuple
   //=====================A place where the on-shell selections have been applied and we fill the ntuple====================================================
  
 
@@ -1973,7 +1991,7 @@ if (writeNtp_ && writeNtpFullRange){
     ftntp_->Fill();
   }
 //End filling ntuple
-  
+*/
   //SafeHistFill(histMap1D_, getHistName("Mass", variation.second), Mass, weight);
   SafeHistFill(histMap1D_, getHistName("PVDZ", variation.second), l1PVDZ, weight);
   SafeHistFill(histMap1D_, getHistName("PVDZ", variation.second), l2PVDZ, weight);
@@ -2002,18 +2020,18 @@ if (writeNtp_ && writeNtpFullRange){
   //  if ( evt != 816730 && weight !=135.108)
   // {
   SafeHistFill(histMap1D_, getHistName("yield", variation.second), 1, weight);
-  //if (l1Charge<0 && l2Charge>0) {
-  //SafeHistFill(histMap1D_, getHistName("CosTheta", variation.second), cosTheta_1, weight);}
-  //if (l2Charge <0 && l1Charge>0) {
-  // SafeHistFill(histMap1D_, getHistName("CosTheta", variation.second),  cosTheta_2, weight);}
-  //  if (l3Charge<0 && l4Charge>0) {
-  //SafeHistFill(histMap1D_, getHistName("CosTheta", variation.second),  cosTheta_3, weight);}
-  //if (l4Charge <0 && l3Charge>0) {
-  //SafeHistFill(histMap1D_, getHistName("CosTheta", variation.second),  cosTheta_4, weight);}
-  if (l1Charge>0 && l2Charge<0) {                                                                            
-  SafeHistFill(histMap1D_, getHistName("CosTheta", variation.second), cosTheta_1, weight);}                  
-  if (l2Charge >0 && l1Charge<0) {                                                                           
-  SafeHistFill(histMap1D_, getHistName("CosTheta", variation.second),  cosTheta_2, weight);} 
+  if (l1Charge>0 && l2Charge<0) {
+    SafeHistFill(histMap1D_, getHistName("CosTheta1", variation.second), cosTheta_1, weight);}
+  if (l2Charge>0 && l1Charge<0) {
+    SafeHistFill(histMap1D_, getHistName("CosTheta1", variation.second),  cosTheta_2, weight);}
+   if (l3Charge>0 && l4Charge<0) {
+     SafeHistFill(histMap1D_, getHistName("CosTheta2", variation.second),  cosTheta_3, weight);}
+   if (l4Charge>0 && l3Charge<0) {
+     SafeHistFill(histMap1D_, getHistName("CosTheta2", variation.second),  cosTheta_4, weight);}
+                                                                             
+  SafeHistFill(histMap1D_, getHistName("CosThetaStar", variation.second), cosThetaStar_1, weight);                  
+  //if (l2Charge >0 && l1Charge<0) {                                                                           
+  // SafeHistFill(histMap1D_, getHistName("CosTheta", variation.second),  cosTheta_2, weight);} 
   SafeHistFill(histMap1D_, getHistName("Mass", variation.second), Mass,weight);
   SafeHistFill(histMap1D_, getHistName("Z1Mass", variation.second), Z1mass, weight);
   SafeHistFill(histMap1D_, getHistName("Z2Mass", variation.second), Z2mass, weight);

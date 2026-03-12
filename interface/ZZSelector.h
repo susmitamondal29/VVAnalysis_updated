@@ -68,19 +68,32 @@ public:
     std::vector<float> *jetPt_jerDown = NULL;
     std::vector<float> *jetCSVv2 = NULL;
     UInt_t nvtx;
-    Float_t Mass;
-    Float_t Pt;
-    Float_t Eta;
+  Float_t Mass;
+  Float_t Pt;
+  Float_t Eta;
+  
+  
+  
     float dPhiZZ; //DeltaPhi between Z1 and Z2
     float dRZZ;   //DeltaR between Z1 and Z2
-    float cosTheta_1;
-    float cosTheta_2;
-    float cosTheta_3;
-    float cosTheta_4;
-    float dPhill;
+  //float cosTheta_1;
+  // float cosTheta_2;
+  // float cosTheta_3;
+  // float cosTheta_4;
+  double cosTheta_1;
+  double cosTheta_2;
+  double cosTheta_3;
+  double cosTheta_4;
+  double cosTheta_1_bkg;
+  double cosTheta_2_bkg;
+  double cosTheta_3_bkg;
+  double cosTheta_4_bkg;
+  double cosThetaStar_1;
+  float dPhill;
     float Z1Rapidity;
     float Z2Rapidity;
-    float rapidityDiff;
+    double  rapidityDiff;
+  double  rapidityDiff_bkg;
     std::vector<int> *jetPUID = NULL;
     std::vector<int> *isGenJetMatched = NULL;
 

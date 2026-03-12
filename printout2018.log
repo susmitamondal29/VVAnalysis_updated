@@ -1,0 +1,140 @@
+Error in <TFile::Get>: Unexpected type of TDirectoryFile::fKeys!
+Error in <TFile::GetObjectChecked>: Unexpected type of TDirectoryFile::fKeys!
+Error in <TFile::Get>: Unexpected type of TDirectoryFile::fKeys!
+Error in <TFile::Get>: Unexpected type of TDirectoryFile::fKeys!
+Error in <TFile::Get>: Unexpected type of TDirectoryFile::fKeys!
+Error in <TFile::GetObjectChecked>: Unexpected type of TDirectoryFile::fKeys!
+Error in <TFile::GetObjectChecked>: Unexpected type of TDirectoryFile::fKeys!
+Error in <TFile::GetObjectChecked>: Unexpected type of TDirectoryFile::fKeys!
+Info in <TCanvas::MakeDefCanvas>:  created default TCanvas with name c1
+Info in <TCanvas::MakeDefCanvas>:  created default TCanvas with name c1
+Info in <TCanvas::MakeDefCanvas>:  created default TCanvas with name c1
+Info in <TCanvas::MakeDefCanvas>:  created default TCanvas with name c1
+hadd Target file: Hists08Mar2026-ZZ4l2018_MVAsel_eeee.root
+hadd compression setting for all output: 1
+hadd Source file 1: temp_ZTZT_Hists08Mar2026-ZZ4l2018_MVAsel.root
+hadd Source file 2: temp_ZTZ0_Hists08Mar2026-ZZ4l2018_MVAsel.root
+hadd Source file 3: temp_Z0ZT_Hists08Mar2026-ZZ4l2018_MVAsel.root
+hadd Source file 4: temp_Z0Z0_Hists08Mar2026-ZZ4l2018_MVAsel.root
+hadd Target path: Hists08Mar2026-ZZ4l2018_MVAsel_eeee.root:/
+hadd Target path: Hists08Mar2026-ZZ4l2018_MVAsel_eeee.root:/ZTZT
+hadd Target path: Hists08Mar2026-ZZ4l2018_MVAsel_eeee.root:/ZTZ0
+hadd Target path: Hists08Mar2026-ZZ4l2018_MVAsel_eeee.root:/Z0ZT
+hadd Target path: Hists08Mar2026-ZZ4l2018_MVAsel_eeee.root:/Z0Z0
+hadd Target file: Hists08Mar2026-ZZ4l2018_MVAsel_eemm.root
+hadd compression setting for all output: 1
+hadd Source file 1: temp_ZTZT_Hists08Mar2026-ZZ4l2018_MVAsel.root
+hadd Source file 2: temp_ZTZ0_Hists08Mar2026-ZZ4l2018_MVAsel.root
+hadd Source file 3: temp_Z0ZT_Hists08Mar2026-ZZ4l2018_MVAsel.root
+hadd Source file 4: temp_Z0Z0_Hists08Mar2026-ZZ4l2018_MVAsel.root
+hadd Target path: Hists08Mar2026-ZZ4l2018_MVAsel_eemm.root:/
+hadd Target path: Hists08Mar2026-ZZ4l2018_MVAsel_eemm.root:/ZTZT
+hadd Target path: Hists08Mar2026-ZZ4l2018_MVAsel_eemm.root:/ZTZ0
+hadd Target path: Hists08Mar2026-ZZ4l2018_MVAsel_eemm.root:/Z0ZT
+hadd Target path: Hists08Mar2026-ZZ4l2018_MVAsel_eemm.root:/Z0Z0
+hadd Target file: Hists08Mar2026-ZZ4l2018_MVAsel_mmee.root
+hadd compression setting for all output: 1
+hadd Source file 1: temp_ZTZT_Hists08Mar2026-ZZ4l2018_MVAsel.root
+hadd Source file 2: temp_ZTZ0_Hists08Mar2026-ZZ4l2018_MVAsel.root
+hadd Source file 3: temp_Z0ZT_Hists08Mar2026-ZZ4l2018_MVAsel.root
+hadd Source file 4: temp_Z0Z0_Hists08Mar2026-ZZ4l2018_MVAsel.root
+hadd Target path: Hists08Mar2026-ZZ4l2018_MVAsel_mmee.root:/
+hadd Target path: Hists08Mar2026-ZZ4l2018_MVAsel_mmee.root:/ZTZT
+hadd Target path: Hists08Mar2026-ZZ4l2018_MVAsel_mmee.root:/ZTZ0
+hadd Target path: Hists08Mar2026-ZZ4l2018_MVAsel_mmee.root:/Z0ZT
+hadd Target path: Hists08Mar2026-ZZ4l2018_MVAsel_mmee.root:/Z0Z0
+hadd Target file: Hists08Mar2026-ZZ4l2018_MVAsel_mmmm.root
+hadd compression setting for all output: 1
+hadd Source file 1: temp_ZTZT_Hists08Mar2026-ZZ4l2018_MVAsel.root
+hadd Source file 2: temp_ZTZ0_Hists08Mar2026-ZZ4l2018_MVAsel.root
+hadd Source file 3: temp_Z0ZT_Hists08Mar2026-ZZ4l2018_MVAsel.root
+hadd Source file 4: temp_Z0Z0_Hists08Mar2026-ZZ4l2018_MVAsel.root
+hadd Target path: Hists08Mar2026-ZZ4l2018_MVAsel_mmmm.root:/
+hadd Target path: Hists08Mar2026-ZZ4l2018_MVAsel_mmmm.root:/ZTZT
+hadd Target path: Hists08Mar2026-ZZ4l2018_MVAsel_mmmm.root:/ZTZ0
+hadd Target path: Hists08Mar2026-ZZ4l2018_MVAsel_mmmm.root:/Z0ZT
+hadd Target path: Hists08Mar2026-ZZ4l2018_MVAsel_mmmm.root:/Z0Z0
+hadd Target file: Hists08Mar2026-ZZ4l2018_MVAsel.root
+hadd compression setting for all output: 1
+hadd Source file 1: Hists08Mar2026-ZZ4l2018_MVAsel_eeee.root
+hadd Source file 2: Hists08Mar2026-ZZ4l2018_MVAsel_eemm.root
+hadd Source file 3: Hists08Mar2026-ZZ4l2018_MVAsel_mmee.root
+hadd Source file 4: Hists08Mar2026-ZZ4l2018_MVAsel_mmmm.root
+hadd Target path: Hists08Mar2026-ZZ4l2018_MVAsel.root:/
+hadd Target path: Hists08Mar2026-ZZ4l2018_MVAsel.root:/ZTZT
+hadd Target path: Hists08Mar2026-ZZ4l2018_MVAsel.root:/ZTZ0
+hadd Target path: Hists08Mar2026-ZZ4l2018_MVAsel.root:/Z0ZT
+hadd Target path: Hists08Mar2026-ZZ4l2018_MVAsel.root:/Z0Z0
+Pause here
+hadd Target file: Hists08Mar2026-ZZ4l2018_MVAbkgd_eeee.root
+hadd compression setting for all output: 1
+hadd Source file 1: temp_ZTZT_Hists08Mar2026-ZZ4l2018_MVAbkgd.root
+hadd Source file 2: temp_ZTZ0_Hists08Mar2026-ZZ4l2018_MVAbkgd.root
+hadd Source file 3: temp_Z0ZT_Hists08Mar2026-ZZ4l2018_MVAbkgd.root
+hadd Source file 4: temp_Z0Z0_Hists08Mar2026-ZZ4l2018_MVAbkgd.root
+hadd Target path: Hists08Mar2026-ZZ4l2018_MVAbkgd_eeee.root:/
+hadd Target path: Hists08Mar2026-ZZ4l2018_MVAbkgd_eeee.root:/ZTZT
+hadd Target path: Hists08Mar2026-ZZ4l2018_MVAbkgd_eeee.root:/ZTZ0
+hadd Target path: Hists08Mar2026-ZZ4l2018_MVAbkgd_eeee.root:/Z0ZT
+hadd Target path: Hists08Mar2026-ZZ4l2018_MVAbkgd_eeee.root:/Z0Z0
+hadd Target file: Hists08Mar2026-ZZ4l2018_MVAbkgd_eemm.root
+hadd compression setting for all output: 1
+hadd Source file 1: temp_ZTZT_Hists08Mar2026-ZZ4l2018_MVAbkgd.root
+hadd Source file 2: temp_ZTZ0_Hists08Mar2026-ZZ4l2018_MVAbkgd.root
+hadd Source file 3: temp_Z0ZT_Hists08Mar2026-ZZ4l2018_MVAbkgd.root
+hadd Source file 4: temp_Z0Z0_Hists08Mar2026-ZZ4l2018_MVAbkgd.root
+hadd Target path: Hists08Mar2026-ZZ4l2018_MVAbkgd_eemm.root:/
+hadd Target path: Hists08Mar2026-ZZ4l2018_MVAbkgd_eemm.root:/ZTZT
+hadd Target path: Hists08Mar2026-ZZ4l2018_MVAbkgd_eemm.root:/ZTZ0
+hadd Target path: Hists08Mar2026-ZZ4l2018_MVAbkgd_eemm.root:/Z0ZT
+hadd Target path: Hists08Mar2026-ZZ4l2018_MVAbkgd_eemm.root:/Z0Z0
+hadd Target file: Hists08Mar2026-ZZ4l2018_MVAbkgd_mmee.root
+hadd compression setting for all output: 1
+hadd Source file 1: temp_ZTZT_Hists08Mar2026-ZZ4l2018_MVAbkgd.root
+hadd Source file 2: temp_ZTZ0_Hists08Mar2026-ZZ4l2018_MVAbkgd.root
+hadd Source file 3: temp_Z0ZT_Hists08Mar2026-ZZ4l2018_MVAbkgd.root
+hadd Source file 4: temp_Z0Z0_Hists08Mar2026-ZZ4l2018_MVAbkgd.root
+hadd Target path: Hists08Mar2026-ZZ4l2018_MVAbkgd_mmee.root:/
+hadd Target path: Hists08Mar2026-ZZ4l2018_MVAbkgd_mmee.root:/ZTZT
+hadd Target path: Hists08Mar2026-ZZ4l2018_MVAbkgd_mmee.root:/ZTZ0
+hadd Target path: Hists08Mar2026-ZZ4l2018_MVAbkgd_mmee.root:/Z0ZT
+hadd Target path: Hists08Mar2026-ZZ4l2018_MVAbkgd_mmee.root:/Z0Z0
+hadd Target file: Hists08Mar2026-ZZ4l2018_MVAbkgd_mmmm.root
+hadd compression setting for all output: 1
+hadd Source file 1: temp_ZTZT_Hists08Mar2026-ZZ4l2018_MVAbkgd.root
+hadd Source file 2: temp_ZTZ0_Hists08Mar2026-ZZ4l2018_MVAbkgd.root
+hadd Source file 3: temp_Z0ZT_Hists08Mar2026-ZZ4l2018_MVAbkgd.root
+hadd Source file 4: temp_Z0Z0_Hists08Mar2026-ZZ4l2018_MVAbkgd.root
+hadd Target path: Hists08Mar2026-ZZ4l2018_MVAbkgd_mmmm.root:/
+hadd Target path: Hists08Mar2026-ZZ4l2018_MVAbkgd_mmmm.root:/ZTZT
+hadd Target path: Hists08Mar2026-ZZ4l2018_MVAbkgd_mmmm.root:/ZTZ0
+hadd Target path: Hists08Mar2026-ZZ4l2018_MVAbkgd_mmmm.root:/Z0ZT
+hadd Target path: Hists08Mar2026-ZZ4l2018_MVAbkgd_mmmm.root:/Z0Z0
+hadd Target file: Hists08Mar2026-ZZ4l2018_MVAbkgd.root
+hadd compression setting for all output: 1
+hadd Source file 1: Hists08Mar2026-ZZ4l2018_MVAbkgd_eeee.root
+hadd Source file 2: Hists08Mar2026-ZZ4l2018_MVAbkgd_eemm.root
+hadd Source file 3: Hists08Mar2026-ZZ4l2018_MVAbkgd_mmee.root
+hadd Source file 4: Hists08Mar2026-ZZ4l2018_MVAbkgd_mmmm.root
+hadd Target path: Hists08Mar2026-ZZ4l2018_MVAbkgd.root:/
+hadd Target path: Hists08Mar2026-ZZ4l2018_MVAbkgd.root:/ZTZT
+hadd Target path: Hists08Mar2026-ZZ4l2018_MVAbkgd.root:/ZTZ0
+hadd Target path: Hists08Mar2026-ZZ4l2018_MVAbkgd.root:/Z0ZT
+hadd Target path: Hists08Mar2026-ZZ4l2018_MVAbkgd.root:/Z0Z0
+hadd Target file: Hists08Mar2026-ZZ4l2018_MVA.root
+hadd compression setting for all output: 1
+hadd Source file 1: Hists08Mar2026-ZZ4l2018_MVAsel.root
+hadd Source file 2: Hists08Mar2026-ZZ4l2018_MVAbkgd.root
+hadd Target path: Hists08Mar2026-ZZ4l2018_MVA.root:/
+hadd Target path: Hists08Mar2026-ZZ4l2018_MVA.root:/ZTZT
+hadd Target path: Hists08Mar2026-ZZ4l2018_MVA.root:/ZTZ0
+hadd Target path: Hists08Mar2026-ZZ4l2018_MVA.root:/Z0ZT
+hadd Target path: Hists08Mar2026-ZZ4l2018_MVA.root:/Z0Z0
+WARNING:root:Skipping invalid filename zz4l-powheg
+WARNING:root:Skipping invalid filename ggZZ4e
+WARNING:root:Skipping invalid filename ggZZ4m
+WARNING:root:Skipping invalid filename ggZZ4tau
+WARNING:root:Skipping invalid filename ggZZ2e2mu
+WARNING:root:Skipping invalid filename ggZZ2e2tau
+WARNING:root:Skipping invalid filename ggZZ2mu2tau
+Job done!!===================================

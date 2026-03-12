@@ -31,7 +31,7 @@ void ZZBackgroundSelector::SetupNewDirectory()
    
     // Insure that hist ranges are exactly the same as ZZSelector, just change name
     for (const auto && obj : *currentHistDir_) {
-        std::string name = obj->GetName();
+      std::string name = obj->GetName();
         TNamed* named = dynamic_cast<TNamed*>(obj);
         named->SetName(name.insert(name.length()-4, "Fakes_").c_str());
     } 

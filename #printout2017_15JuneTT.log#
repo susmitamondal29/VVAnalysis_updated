@@ -1,0 +1,226 @@
+nohup: ignoring input
+1;95;0cError in <TFile::Get>: Unexpected type of TDirectoryFile::fKeys!
+Error in <TFile::GetObjectChecked>: Unexpected type of TDirectoryFile::fKeys!
+Info in <TCanvas::MakeDefCanvas>:  created default TCanvas with name c1
+hadd Target file: Hists15Jun2025-ZZ4l2017_Moriondsel_eeee.root
+hadd compression setting for all output: 1
+hadd Source file 1: temp_tt-jets_Hists15Jun2025-ZZ4l2017_Moriondsel.root
+hadd Target path: Hists15Jun2025-ZZ4l2017_Moriondsel_eeee.root:/
+hadd Target path: Hists15Jun2025-ZZ4l2017_Moriondsel_eeee.root:/tt-jets
+hadd Target file: Hists15Jun2025-ZZ4l2017_Moriondsel_eemm.root
+hadd compression setting for all output: 1
+hadd Source file 1: temp_tt-jets_Hists15Jun2025-ZZ4l2017_Moriondsel.root
+hadd Target path: Hists15Jun2025-ZZ4l2017_Moriondsel_eemm.root:/
+hadd Target path: Hists15Jun2025-ZZ4l2017_Moriondsel_eemm.root:/tt-jets
+hadd Target file: Hists15Jun2025-ZZ4l2017_Moriondsel_mmee.root
+hadd compression setting for all output: 1
+hadd Source file 1: temp_tt-jets_Hists15Jun2025-ZZ4l2017_Moriondsel.root
+hadd Target path: Hists15Jun2025-ZZ4l2017_Moriondsel_mmee.root:/
+hadd Target path: Hists15Jun2025-ZZ4l2017_Moriondsel_mmee.root:/tt-jets
+hadd Target file: Hists15Jun2025-ZZ4l2017_Moriondsel_mmmm.root
+hadd compression setting for all output: 1
+hadd Source file 1: temp_tt-jets_Hists15Jun2025-ZZ4l2017_Moriondsel.root
+hadd Target path: Hists15Jun2025-ZZ4l2017_Moriondsel_mmmm.root:/
+hadd Target path: Hists15Jun2025-ZZ4l2017_Moriondsel_mmmm.root:/tt-jets
+hadd Target file: Hists15Jun2025-ZZ4l2017_Moriondsel.root
+hadd compression setting for all output: 1
+hadd Source file 1: Hists15Jun2025-ZZ4l2017_Moriondsel_eeee.root
+hadd Source file 2: Hists15Jun2025-ZZ4l2017_Moriondsel_eemm.root
+hadd Source file 3: Hists15Jun2025-ZZ4l2017_Moriondsel_mmee.root
+hadd Source file 4: Hists15Jun2025-ZZ4l2017_Moriondsel_mmmm.root
+hadd Target path: Hists15Jun2025-ZZ4l2017_Moriondsel.root:/
+hadd Target path: Hists15Jun2025-ZZ4l2017_Moriondsel.root:/tt-jets
+Pause here
+lepton2Pt 36.628
+lepton2Eta -0.352896
+lepton2Phi -0.548912
+lepton2Mass 0.0106619
+lepton2Energy 38.9325
+Z1Pt 44.3852
+Z1Eta -0.749646
+Z1Phi 0.845709
+Z1Mass 77.2071
+Z2Pt 58.1836
+Z2Eta -0.155083
+Z2Phi 1.21855
+Z2Mass 64.7357
+CosTheta_2_PPPF 0,weight-5148.13
+PPPF----------------------
+lepton1Pt 111.272
+lepton1Eta -1.83082
+lepton1Phi -3.04339
+lepton1Mass 0.100593
+lepton1Energy 356.031
+Z1Pt 101.731
+Z1Eta -1.9494
+Z1Phi -3.13795
+Z1Mass 84.7988
+Z2Pt 78.1853
+Z2Eta -2.54888
+Z2Phi 1.07304
+Z2Mass 80.3622
+CosTheta_1_PPPF 0weight-4399.58
+----------------------
+lepton1Pt 55.3047
+lepton1Eta -1.46842
+lepton1Phi 1.36424
+lepton1Mass 0.012508
+lepton1Energy 58.4628
+Z1Pt 39.5792
+Z1Eta -2.34872
+Z1Phi 1.85596
+Z1Mass 75.0078
+Z2Pt 59.1748
+Z2Eta -0.251118
+Z2Phi -1.17051
+Z2Mass 89.8196
+CosTheta_1_PPPF 0weight4858.16
+----------------------
+lepton2Pt 34.7735
+lepton2Eta -1.06265
+lepton2Phi -0.0209801
+lepton2Mass 0.0100677
+lepton2Energy 56.3256
+Z1Pt 36.4783
+Z1Eta -2.32069
+Z1Phi 1.12939
+Z1Mass 73.0332
+Z2Pt 43.2004
+Z2Eta -0.75738
+Z2Phi 1.18121
+Z2Mass 61.6203
+CosTheta_2_PPPF 0,weight-5448.99
+PPPF----------------------
+lepton1Pt 32.2723
+lepton1Eta -0.96463
+lepton1Phi 2.13672
+lepton1Mass 0.0190424
+lepton1Energy 65.0749
+Z1Pt 10.7668
+Z1Eta -2.23955
+Z1Phi -2.99178
+Z1Mass 63.0198
+Z2Pt 23.8034
+Z2Eta -1.22584
+Z2Phi 0.461697
+Z2Mass 78.8775
+CosTheta_1_PPPF 0weight4748.02
+----------------------
+lepton2Pt 26.8968
+lepton2Eta -0.011018
+lepton2Phi -2.98259
+lepton2Mass 0.0226272
+lepton2Energy 149.107
+Z1Pt 117.082
+Z1Eta -0.335397
+Z1Phi 1.51141
+Z1Mass 99.3919
+Z2Pt 137.312
+Z2Eta 1.08373
+Z2Phi -1.41067
+Z2Mass 92.7271
+CosTheta_2_PPPF 0,weight5813.49
+PPPF----------------------
+lepton2Pt 35.2043
+lepton2Eta 0.422822
+lepton2Phi -0.523049
+lepton2Mass -0.00381477
+lepton2Energy 14.6742
+Z1Pt 82.1226
+Z1Eta 1.29216
+Z1Phi 0.448435
+Z1Mass 79.1264
+Z2Pt 60.8157
+Z2Eta 1.77091
+Z2Phi 2.22246
+Z2Mass 82.1602
+CosTheta_2_PPPF 0,weight4191.77
+PPPF----------------------
+lepton2Pt 53.5416
+lepton2Eta -1.72859
+lepton2Phi 3.08511
+lepton2Mass 0.0374987
+lepton2Energy 186.642
+Z1Pt 120.685
+Z1Eta -1.26729
+Z1Phi 2.41893
+Z1Mass 107.484
+Z2Pt 37.2984
+Z2Eta -3.0982
+Z2Phi 0.128449
+Z2Mass 89.8349
+CosTheta_2_PPPF 0,weight4711.72
+PPPF----------------------
+lepton1Pt 59.2342
+lepton1Eta 1.44519
+lepton1Phi -0.828617
+lepton1Mass -0.0299647
+lepton1Energy 132.636
+Z1Pt 67.9149
+Z1Eta 1.20086
+Z1Phi -0.663526
+Z1Mass 92.0399
+Z2Pt 76.5059
+Z2Eta -1.49219
+Z2Phi 2.75099
+Z2Mass 64.6374
+CosTheta_1_PPPF 0weight-5479.25
+----------------------
+lepton2Pt 40.2904
+lepton2Eta 0.482423
+lepton2Phi 1.46318
+lepton2Mass 0.00598226
+lepton2Energy 35.9593
+Z1Pt 80.8215
+Z1Eta 1.5522
+Z1Phi 1.54012
+Z1Mass 72.5899
+Z2Pt 32.1874
+Z2Eta -0.636229
+Z2Phi -2.39436
+Z2Mass 94.5201
+CosTheta_2_PPPF 0,weight-5317.35
+PPPF----------------------
+hadd Target file: Hists15Jun2025-ZZ4l2017_Moriondbkgd_eeee.root
+hadd co:q
+:qmpression setting for all output: 1
+hadd Source file 1: temp_tt-jets_Hists15Jun2025-ZZ4l2017_Moriondbkgd.root
+hadd Target path: Hists15Jun2025-ZZ4l2017_Moriondbkgd_eeee.root:/
+hadd Target path: Hists15Jun2025-ZZ4l2017_Moriondbkgd_eeee.root:/tt-jets
+hadd Target file: Hists15Jun2025-ZZ4l2017_Moriondbkgd_eemm.root
+hadd compression setting for all output: 1
+hadd Source file 1: temp_tt-jets_Hists15Jun2025-ZZ4l2017_Moriondbkgd.root
+hadd Target path: Hists15Jun2025-ZZ4l2017_Moriondbkgd_eemm.root:/
+hadd Target path: Hists15Jun2025-ZZ4l2017_Moriondbkgd_eemm.root:/tt-jets
+hadd Target file: Hists15Jun2025-ZZ4l2017_Moriondbkgd_mmee.root
+hadd compression setting for all output: 1
+hadd Source file 1: temp_tt-jets_Hists15Jun2025-ZZ4l2017_Moriondbkgd.root
+hadd Target path: Hists15Jun2025-ZZ4l2017_Moriondbkgd_mmee.root:/
+hadd Target path: Hists15Jun2025-ZZ4l2017_Moriondbkgd_mmee.root:/tt-jets
+hadd Target file: Hists15Jun2025-ZZ4l2017_Moriondbkgd_mmmm.root
+hadd compression setting for all output: 1
+hadd Source file 1: temp_tt-jets_Hists15Jun2025-ZZ4l2017_Moriondbkgd.root
+hadd Target path: Hists15Jun2025-ZZ4l2017_Moriondbkgd_mmmm.root:/
+hadd Target path: Hists15Jun2025-ZZ4l2017_Moriondbkgd_mmmm.root:/tt-jets
+hadd Target file: Hists15Jun2025-ZZ4l2017_Moriondbkgd.root
+hadd compression setting for all output: 1
+hadd Source file 1: Hists15Jun2025-ZZ4l2017_Moriondbkgd_eeee.root
+hadd Source file 2: Hists15Jun2025-ZZ4l2017_Moriondbkgd_eemm.root
+hadd Source file 3: Hists15Jun2025-ZZ4l2017_Moriondbkgd_mmee.root
+hadd Source file 4: Hists15Jun2025-ZZ4l2017_Moriondbkgd_mmmm.root
+hadd Target path: Hists15Jun2025-ZZ4l2017_Moriondbkgd.root:/
+hadd Target path: Hists15Jun2025-ZZ4l2017_Moriondbkgd.root:/tt-jets
+hadd Target file: Hists15Jun2025-ZZ4l2017_Moriond.root
+hadd compression setting for all output: 1
+hadd Source file 1: Hists15Jun2025-ZZ4l2017_Moriondsel.root
+hadd Source file 2: Hists15Jun2025-ZZ4l2017_Moriondbkgd.root
+hadd Target path: Hists15Jun2025-ZZ4l2017_Moriond.root:/
+hadd Target path: Hists15Jun2025-ZZ4l2017_Moriond.root:/tt-jets
+WARNING:root:Skipping invalid filename zz4l-powheg
+WARNING:root:Skipping invalid filename ggZZ4e
+WARNING:root:Skipping invalid filename ggZZ4m
+WARNING:root:Skipping invalid filename ggZZ4tau
+WARNING:root:Skipping invalid filename ggZZ2e2mu
+WARNING:root:Skipping invalid filename ggZZ2e2tau
+WARNING:root:Skipping invalid filename ggZZ2mu2tau
+Job done!!===================================

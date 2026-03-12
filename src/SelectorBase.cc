@@ -145,7 +145,7 @@ void SelectorBase::SetScaleFactors()
 
 void SelectorBase::SetBranches()
 {
-    if (ntupleType_ == UWVV)
+      if (ntupleType_ == UWVV)
         SetBranchesUWVV();
     else if (ntupleType_ == NanoAOD)
         SetBranchesNanoAOD();

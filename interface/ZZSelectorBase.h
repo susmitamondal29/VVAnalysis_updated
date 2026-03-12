@@ -35,14 +35,18 @@ public:
     ULong64_t evt;
     //Int_t duplicated;
     Float_t weight;
-    Float_t genWeight;
+ 
+  Float_t genWeight;
     Float_t originalXWGTUP;
     Float_t L1prefiringWeight;
     Float_t L1prefiringWeightUp;
     Float_t L1prefiringWeightDn;
     Float_t nTruePU;
-    Float_t Z1mass;
-    Float_t Z2mass;
+  Float_t Z1mass;
+  Float_t Z2mass;
+  
+  
+
     //Float_t Zamass;
     //Float_t Zbmass;
     Float_t Z1pt;
@@ -51,6 +55,7 @@ public:
     Float_t Z2Phi;
     Float_t Z1Eta;
     Float_t Z2Eta;
+    
 	Float_t Z1PolCos;
 	Float_t Z2PolCos;
     Float_t type1_pfMETEt;
@@ -80,39 +85,41 @@ public:
     Float_t l2P=-1.0;
     Float_t l3P=-1.0;
     Float_t l4P=-1.0;
-    Float_t l1Pt;
-    Float_t l2Pt;
-    Float_t l3Pt;
-    Float_t l4Pt;
+  Float_t l1Pt;
+  Float_t l2Pt;
+  Float_t l3Pt;
+  Float_t l4Pt;
+  
     Int_t l1Charge;
     Int_t l2Charge;
     Int_t l3Charge;
     Int_t l4Charge;
-    Float_t l1Energy;
-    Float_t l2Energy;
-    Float_t l3Energy;
-    Float_t l4Energy;
-    Float_t l1Eta;
-    Float_t l2Eta;
-    Float_t l3Eta;
-    Float_t l4Eta;
-    Float_t l1Phi;
-    Float_t l2Phi;
-    Float_t l3Phi;
-    Float_t l4Phi;
-    Float_t l1SIP3D;
-    Float_t l2SIP3D;
+  Float_t l1Energy;
+  Float_t l2Energy;
+  Float_t l3Energy;
+  Float_t l4Energy;
+  Float_t l1Eta;
+  Float_t l2Eta;
+  Float_t l3Eta;
+  Float_t l4Eta;
+  Float_t l1Phi;
+  Float_t l2Phi;
+  Float_t l3Phi;
+  Float_t l4Phi;
+  
+  Float_t l1SIP3D;
+  Float_t l2SIP3D;
     Float_t l3SIP3D;
     Float_t l4SIP3D;
     Int_t l1PdgId;
     Int_t l2PdgId;
     Int_t l3PdgId;
     Int_t l4PdgId;
-    Float_t l1Mass;
-    Float_t l2Mass;
-    Float_t l3Mass;
-    Float_t l4Mass;
-
+  Float_t l1Mass;
+  Float_t l2Mass;
+  Float_t l3Mass;
+  Float_t l4Mass;
+  
     Float_t l1PVDXY;
     Float_t l2PVDXY;
     Float_t l3PVDXY;
