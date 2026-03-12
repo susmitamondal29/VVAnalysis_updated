@@ -414,39 +414,7 @@ void ZZSelector::LoadBranchesUWVV(Long64_t entry, std::pair<Systematic, std::str
       weight *= (*pileupSF_->begin()).second->evaluate({nTruePU, "down"}) / (*pileupSF_->begin()).second->evaluate({nTruePU, "nominal"});
     }
   }
- /* double Z1pt_d = (double)Z1pt;
-  double Z1Eta_d = (double)Z1Eta;
-  double Z1Phi_d = (double)Z1Phi;
-  double Z1mass_d = (doubel)Z1mass;
-  double Z2pt_d = (double)Z2pt;
-  double Z2Eta_d = (double)Z2Eta;
-  double Z2Phi_d = (double)Z2Phi;
-  double Z2mass_d = (doubel)Z2mass;
 
-  double l1Pt_d = (double)l1Pt;
-  double l1Eta_d = (double)l1Eta;
-  double l1Phi_d = (double)l1Phi;
-  double l1Mass_d = (double)l1Mass;
-  double l1Energy_d = (double)l1Energy;
-
-  double l2Pt_d = (double)l2Pt;
-  double l2Eta_d = (double)l2Eta;
-  double l2Phi_d = (double)l2Phi;
-  double l2Mass_d = (double)l2Mass;
-  double l2Energy_d = (double)l2Energy;
-
-  double l3Pt_d = (double)l3Pt;
-  double l3Eta_d = (double)l3Eta;
-  double l3Phi_d = (double)l3Phi;
-  double l3Mass_d = (double)l3Mass;
-  double l3Energy_d = (double)l3Energy;
-
-  double l4Pt_d = (double)l4pt;
-  double l4Eta_d = (double)l4Eta;
-  double l4Phi_d = (double)l4Phi;
-  double l4Mass_d = (double)l4Mass;
-  double l4Energy_d = (double)l4Energy;
-*/
   auto deltaPhiZZ = [](float phi1, float phi2)
   {
     float pi = TMath::Pi();
@@ -505,21 +473,7 @@ double rapidity(TLorentzVector z1P4, TLorentzVector z2P4)
    return (abs((Z1Rapidity)-(Z2Rapidity)));
  };
 
-/*auto costheta = [] (TLorentzVector z1P4, TLorentzVector z2P4, TLorentzVector l1P4) {
 
-
-
-  TLorentzVector zzP4=z1P4+z2P4;
-
-  l1P4.Boost(-z1P4.BoostVector());
-
-  z1P4.Boost(-zzP4.BoostVector());
-  TLorentzVector lP4_z1=l1P4;
-  TLorentzVector z1P4_zz=z1P4;
-  double ct = lP4_z1.Vect().Dot(z1P4_zz.Vect()) / (lP4_z1.Vect().Mag()*z1P4_zz.Vect().Mag());
-  return ct;
-  };*/
-//double Z1Pt = (double)Z1pt
   
 /*double costheta(const TLorentzVector& z1P4_input,
                        const TLorentzVector& z2P4_input,
@@ -560,38 +514,7 @@ std::pair<double,double> costheta(const TLorentzVector& z1P4_input,
 void ZZSelector::GetPolarizationAngle()
 {
 
-  /* double Z1pt_d = (double)Z1pt;
-  double Z1Eta_d = (double)Z1Eta;
-  double Z1Phi_d = (double)Z1Phi;
-  double Z1mass_d = (double)Z1mass;
-  double Z2pt_d = (double)Z2pt;
-  double Z2Eta_d = (double)Z2Eta;
-  double Z2Phi_d = (double)Z2Phi;
-  double Z2mass_d = (double)Z2mass;
 
-  double l1Pt_d = (double)l1Pt;
-  double l1Eta_d = (double)l1Eta;
-  double l1Phi_d = (double)l1Phi;
-  //double l1Mass_d = (double)l1Mass;
-  double l1Energy_d = (double)l1Energy;
-
-  double l2Pt_d = (double)l2Pt;
-  double l2Eta_d = (double)l2Eta;
-  double l2Phi_d = (double)l2Phi;
-  //double l2Mass_d = (double)l2Mass;
-  double l2Energy_d = (double)l2Energy;
-
-  double l3Pt_d = (double)l3Pt;
-  double l3Eta_d = (double)l3Eta;
-  double l3Phi_d = (double)l3Phi;
-  //double l3Mass_d = (double)l3Mass;
-  double l3Energy_d = (double)l3Energy;
-
-  double l4Pt_d = (double)l4Pt;
-  double l4Eta_d = (double)l4Eta;
-  double l4Phi_d = (double)l4Phi;
-  //double l4Mass_d = (double)l4Mass;
-  double l4Energy_d = (double)l4Energy;*/
   TLorentzVector z1P4;
    z1P4.SetPtEtaPhiM(Z1pt, Z1Eta, Z1Phi, Z1mass);
   //z1P4.SetPtEtaPhiM(Z1pt_d, Z1Eta_d, Z1Phi_d, Z1mass_d);  
